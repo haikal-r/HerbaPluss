@@ -1,0 +1,45 @@
+.main {
+    height: 100vh;
+}
+
+.login-box {
+    width: 400px;
+    height: 420px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 1px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.logo  {
+    background-color: #70B541;
+}
+
+h1 {
+    font-size: 15px;
+}
+
+
+.btn {
+    width: 120px;
+    height: 45px;
+    background-color: #7AC143;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    width: 120px;
+    height: 45px;
+    background-color: #7AC143;
+    font-weight: 600;
+}
+
+.create-account {
+    text-decoration: none;
+    color: black
+}
+
+.create-account:hover {
+    text-decoration: underline;
+}
