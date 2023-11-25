@@ -1,0 +1,27 @@
+:root{
+    --primary-color:  #7AC143;
+    --secondary-color: #518611;
+  
+}
+
+.bg-custom-primary {
+    background-color: #EEE;
+}
+
+.bg-navigation-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.link-hover:hover {
+    background-color: var(--secondary-color);
+}
+
+.text-primary {
+    font-size: 18px;
+    color: white;
+}

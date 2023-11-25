@@ -6,7 +6,7 @@
     <title>Document</title>
 
     <!-- Bootstrap 5 CSS -->
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
 
     <!-- Style External -->
     <link rel="stylesheet" href="./assets/css/login-styles.css">
