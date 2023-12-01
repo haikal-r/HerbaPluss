@@ -19,11 +19,11 @@
                     <img src="./assets/HerbaPluss.svg" class="pt-3 pb-4 "/>
                 </div>
                 <div class="py-3">
-                    <h1>username</h1>
+                    <h1>Username</h1>
                     <input type="text" class="form-control" name="username"/>
                 </div>
                 <div class="pb-3">
-                    <h1>password</h1>
+                    <h1>Password</h1>
                     <input type="text" class="form-control" name="password" />
                 </div>
                 <div class="py-3">
