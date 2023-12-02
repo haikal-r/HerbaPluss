@@ -13,23 +13,23 @@
 </head>
 <body>
     <div class="main d-flex flex-column justify-content-center align-items-center">
-        <div class="login-box p-5">
-            <form class="d-flex flex-column" method="post">
-                <div class="text-center">
+        <div class="login-box p-5 h-auto d-flex align-items-center" style="width: 450px;">
+            <form class="d-flex flex-column w-100" method="post" action="./config/cek-login.php">
+                <div class="text-center mb-3">
                     <img src="./assets/HerbaPluss.svg" class="pt-3 pb-4 "/>
                 </div>
-                <div class="py-3">
+                <div class="pb-4">
                     <h1>username</h1>
                     <input type="text" class="form-control" name="username"/>
                 </div>
-                <div class="pb-3">
+                <div class="pb-4">
                     <h1>password</h1>
                     <input type="text" class="form-control" name="password" />
                 </div>
                 <div class="py-3">
-                    <div class="d-flex justify-content-between">
-                        <a href="/" class="create-account me-5">Create account</a>
-                        <button class="btn form-control text-white ms-2" type="submit" name="login">Next</button>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="./register.php" class="create-account me-5">Create account?</a>
+                        <button type="submit" class="btn btn-primary border-0">Login</button>
                     </div>
                 </div>
             </form>
