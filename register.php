@@ -1,3 +1,21 @@
+<?php 
+    require './config/auth.php';
+
+if( isset($_POST["register"]) ) {
+
+	if( registrasi($_POST) > 0 ) {
+		echo "<script>
+				alert('user baru berhasil ditambahkan!');
+                document.location.href = 'login.php';
+			  </script>";
+	} else {
+		echo mysqli_error($conn);
+	}
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,24 +38,28 @@
                 </div>
                 <div class="py-3">
                     <h1>Email</h1>
-                    <input type="text" class="form-control" name="username"/>
+                    <input type="text" class="form-control" name="email"/>
                 </div>
                 <div class="pb-3">
                     <h1>Username</h1>
-                    <input type="text" class="form-control" name="password" />
-                </div>
-                <div class="pb-3">
-                    <h1>Address</h1>
-                    <input type="text" class="form-control" name="password" />
+                    <input type="text" class="form-control" name="username" />
                 </div>
                 <div class="pb-3">
                     <h1>Password</h1>
                     <input type="text" class="form-control" name="password" />
                 </div>
+                <div class="pb-3">
+                    <h1>Role</h1>
+                    <select name="role" class="form-select" id="inputGroupSelect01">
+                        <option selected>Choose...</option>
+                        <option value="pembeli">Pembeli</option>
+                        <option value="penjual">Penjual</option>
+                    </select>
+                </div>
                 <div class="py-3">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
                         <a href="./login.php" class="create-account me-5">Allready have account?</a>
-                        <button class="btn form-control text-white ms-2" type="submit" name="login">Next</button>
+                        <button class="btn form-control text-white ms-2" type="submit" name="register">Next</button>
                     </div>
                 </div>
             </form>

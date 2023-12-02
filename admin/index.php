@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header('location: ../login.php ');
+exit;
+
+}
+
+$user = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
