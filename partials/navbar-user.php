@@ -18,9 +18,8 @@
     <a href="#" class="text-white navbar-hover ms-3">
         <i class="fa-solid fa-cart-shopping fa-xl "></i>
     </a>
-    <a href="../auth-logout.php">
-        <i class="fas fa-sign-out-alt fa-xl mr-3"></i>
+    <a href="../config/auth-logout.php" class="text-white">
+        <i class="fas fa-sign-out-alt fa-xl mx-3"></i>
     </a>
-      
   </div>
 </nav>

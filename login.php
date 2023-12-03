@@ -1,52 +1,4 @@
-<?php 
-session_start();
-require 'config/auth.php';
 
-if( isset($_SESSION["login"]) ) {
-	if( $_SESSION["role"] == "penjual" ) {
-    header("Location: admin/");
-  }else if( $_SESSION["role"] == "pembeli" ) {
-    header("Location: user/");
-  }else{
-    header("Location: user/");
-  }
-	exit;
-}
-
-
-if( isset($_POST["login"]) ) {
-
-	$email = $_POST["email"];
-	$password = $_POST["password"];
-
-	$result = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");    
-
-	// cek email
-	if( mysqli_num_rows($result) === 1 ) {
-
-		// cek password
-		$row = mysqli_fetch_assoc($result);
-		if( password_verify($password, $row["password"]) ) {
-			// set session
-			$_SESSION["login"] = true;
-			$_SESSION["role"] = $row['role'];
-
-			if( $row["role"] == "penjual" ) {
-        header("Location: admin/");
-      }else if( $row["role"] == "pembeli" ) {
-        header("Location: user/");
-      }else{
-        header("Location: user/dashboard.php");
-      }
-			exit;
-		}
-	}
-
-	$error = true;
-
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +18,7 @@ if( isset($_POST["login"]) ) {
 <body>
     <div class="main d-flex flex-column justify-content-center align-items-center">
         <div class="login-box p-5 h-auto d-flex align-items-center" style="width: 450px;">
-            <form class="d-flex flex-column w-100" method="POST" action="./config/cek-login.php">
+            <form class="d-flex flex-column w-100" method="POST" action="./config/auth-login.php">
                 <div class="text-center mb-3">
                     <img src="./assets/HerbaPluss.svg" class="pt-3 pb-4 " />
                 </div>
@@ -76,7 +28,7 @@ if( isset($_POST["login"]) ) {
                 </div>
                 <div class="pb-3">
                     <h1>Password</h1>
-                    <input type="text" class="form-control" name="password" />
+                    <input type="password" class="form-control" name="password" />
                 </div>
                 <div class="py-3">
                     <div class="d-flex justify-content-between align-items-center">
