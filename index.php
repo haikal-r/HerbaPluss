@@ -10,98 +10,190 @@
     <title>Document</title>
 </head>
 
-<body>
-    <!-- Navbar section -->
-    <nav class="navbar navbar-expand-lg bg-navigation-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand ms-3" href="#">
-    <img src="./assets/HerbaPluss.svg" alt="" width="200" height="50">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse d-flex justify-content-center d-none d-sm-block" id="navbarSupportedContent">
-      <form class="d-flex justify-content-" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-    <a href="./login.php" class="btn btn-outline-success border-0 text-white me-3">Login</a>
-    <a href="./register.php" class="btn btn-light text-success">Register</a>
-  </div>
-</nav>
+<body class="bg-body-secondary">
+    <?php
+        require('./partials/navbar-landing-page.php')
+    ?>
 
-
-
-
-    <!-- Hero setion -->
-    <div class="container-fluid d-flex justify-content-center py-4">
-        <div id="carouselExample" class="carousel slide w-50">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./assets/img/carousel.jpeg" class="d-block w-100 h-100" alt="...">
+<section>
+        <div class="container-fluid d-flex justify-content-center bg-white py-4 px-5 mb-3">
+            <div id="carouselExampleAutoplaying" class="carousel slide bg-white rounded" data-bs-ride="carousel">
+                <div class="carousel-inner w-100">
+                    <div class="carousel-item active">
+                        <img src="./assets/img/gambarr.jpg" class="d-block w-50 rounded" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/gambarr.jpg" class="d-block w-50 rounded" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/img/gambarr.jpg" class="d-block w-50 rounded" alt="...">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="./assets/img/gambar2.jpeg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/img/gambar3.jpeg" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- card product -->
-    <div class="container d-flex">
-        <div class="card me-5" style="width: 18rem;">
-            <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary me-3">Beli</button>
-                    <button class="btn btn-danger">Beli</button>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
-        <div class="card me-5" style="width: 18rem;">
-            <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary me-3">Beli</button>
-                    <button class="btn btn-danger">Beli</button>
+    </section>
+
+    <!-- Katalog product -->
+    <section>
+        <div class="container d-flex flex-column bg-white pb-4 pt-3 my-3">
+            <div class="bg-white p-1 mb-1">
+                <h3>Katalog Produk</h3>
+            </div>
+            <div class="d-flex gap-3 justify-content-center">
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>Mastin</h5>
+                        <p class="card-text">Rp300.000</p>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary me-3">Beli</button>
+                            <button class="btn btn-danger">Beli</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>Mastin</h5>
+                        <p class="card-text">Rp300.000</p>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary me-3">Beli</button>
+                            <button class="btn btn-danger">Beli</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>Mastin</h5>
+                        <p class="card-text">Rp300.000</p>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary me-3">Beli</button>
+                            <button class="btn btn-danger">Beli</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>Mastin</h5>
+                        <p class="card-text">Rp300.000</p>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary me-3">Beli</button>
+                            <button class="btn btn-danger">Beli</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>Mastin</h5>
+                        <p class="card-text">Rp300.000</p>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary me-3">Beli</button>
+                            <button class="btn btn-danger">Beli</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card me-5" style="width: 18rem;">
-            <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary me-3">Beli</button>
-                    <button class="btn btn-danger">Beli</button>
+    </section>
+
+    <!-- Kategori Product -->
+    <section>
+        <div class="container-fluid py-3">
+            <div class="row">
+                <div class="col-3 bg-white min-vh-100">
+                    <div class="py-3">
+                        <h3 class="text-center">Kategori</h3>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center bg-white py-3 px-3 mb-2 border-bottom border-5 border-success primary-color ">
+                            <h4 class="mt-1">Rekomendasi</h4>
+                            <a href="#" class="text-decoration-none d-flex align-items-center">Lihat Semua<i class="fa-solid fa-circle-arrow-right fa-lg ms-2"></i></a>
+                        </div>
+                        <div class="d-flex flex-wrap gap-3 justify-content-start px-3 pb-4">
+                            <div class="card border border-2 p-2" style="width: 15rem;">
+                                <img src="./assets/img/gambar3.jpeg" class="card-img" alt="...">
+                                <div class="card-body">
+                                    <h5>Mastin</h5>
+                                    <p class="card-text">Rp300.000</p>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-primary me-3">Beli</button>
+                                        <button class="btn btn-danger">Beli</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border border-2 p-2" style="width: 15rem;">
+                                <img src="./assets/img/gambar3.jpeg" class="card-img" alt="...">
+                                <div class="card-body">
+                                    <h5>Mastin</h5>
+                                    <p class="card-text">Rp300.000</p>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-primary me-3">Beli</button>
+                                        <button class="btn btn-danger">Beli</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border border-2 p-2" style="width: 15rem;">
+                                <img src="./assets/img/gambar3.jpeg" class="card-img" alt="...">
+                                <div class="card-body">
+                                    <h5>Mastin</h5>
+                                    <p class="card-text">Rp300.000</p>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-primary me-3">Beli</button>
+                                        <button class="btn btn-danger">Beli</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border border-2 p-2" style="width: 15rem;">
+                                <img src="./assets/img/gambar3.jpeg" class="card-img" alt="...">
+                                <div class="card-body">
+                                    <h5>Mastin</h5>
+                                    <p class="card-text">Rp300.000</p>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-primary me-3">Beli</button>
+                                        <button class="btn btn-danger">Beli</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card border border-2 p-2" style="width: 15rem;">
+                                <img src="./assets/img/gambar3.jpeg" class="card-img" alt="...">
+                                <div class="card-body">
+                                    <h5>Mastin</h5>
+                                    <p class="card-text">Rp300.000</p>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-primary me-3">Beli</button>
+                                        <button class="btn btn-danger">Beli</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                           
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card me-5" style="width: 18rem;">
-            <img src="./assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary me-3">Beli</button>
-                    <button class="btn btn-danger">Beli</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
+
+
+    <!-- BEGIN: Vendor JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

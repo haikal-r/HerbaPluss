@@ -1,5 +1,5 @@
 <?php 
-    require './config/auth.php';
+    require './config/auth-register.php';
 
 if( isset($_POST["register"]) ) {
 

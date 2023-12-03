@@ -4,6 +4,14 @@
   
 }
 
+.bg-body-custom{
+    background-color: black;
+}
+
+.primary-color{
+    color: var(--primary-color);
+}
+
 .bg-custom-primary {
     background-color: #EEE;
 }
@@ -28,4 +36,9 @@
 
 navbar-hover:hover {
     background-color: black;
+}
+
+#carouselExampleAutoplaying {
+    height: 500px !important;
+    width: 20%;
 }
