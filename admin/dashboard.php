@@ -17,7 +17,7 @@ require('../partials/session-admin.php');
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 bg-navigation-primary pr-3 pt-4">
-            <?php require"../partials/sidebar-dashboard.php" ?>
+            <?php require"../partials/sidebar-dashboard-admin.php" ?>
         </div>
         <div class="col-md-10 p-4">
             <h3><i class="fas fa-tv me-3"></i>Dashboard</h3>

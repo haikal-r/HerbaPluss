@@ -11,13 +11,11 @@
 </head>
 
 <body class="bg-body-secondary">
-    <?php
-        require('./partials/navbar-landing-page.php')
-    ?>
-
-<section>
-        <div class="container-fluid d-flex justify-content-center bg-white py-4 px-5 mb-3">
-            <div id="carouselExampleAutoplaying" class="carousel slide bg-white rounded" data-bs-ride="carousel">
+    <?php require "./partials/navbar-landing-page.php" ?>
+    <!-- Hero setion -->
+    <section>
+        <div class="container-fluid d-flex justify-content-center sbg-white py-4 px-5 mb-3">
+            <div id="carouselExampleAutoplaying" class="carousel slide bg-white w-100 rounded" data-bs-ride="carousel">
                 <div class="carousel-inner w-100">
                     <div class="carousel-item active">
                         <img src="./assets/img/gambarr.jpg" class="d-block w-50 rounded" alt="...">
@@ -118,7 +116,7 @@
                 </div>
                 <div class="col-9">
                     <div>
-                        <div class="d-flex justify-content-between align-items-center bg-white py-3 px-3 mb-2 border-bottom border-5 border-success primary-color ">
+                        <div class="d-flex justify-content-between align-items-center bg-white py-3 px-3 mb-2 border-bottom border-5 border-success ">
                             <h4 class="mt-1">Rekomendasi</h4>
                             <a href="#" class="text-decoration-none d-flex align-items-center">Lihat Semua<i class="fa-solid fa-circle-arrow-right fa-lg ms-2"></i></a>
                         </div>
@@ -193,7 +191,7 @@
     <!-- BEGIN: Vendor JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

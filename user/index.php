@@ -24,8 +24,8 @@ $user = $_SESSION['username'];
     <?php require "../partials/navbar-user.php" ?>
     <!-- Hero setion -->
     <section>
-        <div class="container-fluid d-flex justify-content-center bg-white py-4 px-5 mb-3">
-            <div id="carouselExampleAutoplaying" class="carousel slide bg-white rounded" data-bs-ride="carousel">
+        <div class="container-fluid d-flex justify-content-center sbg-white py-4 px-5 mb-3">
+            <div id="carouselExampleAutoplaying" class="carousel slide bg-white w-100 rounded" data-bs-ride="carousel">
                 <div class="carousel-inner w-100">
                     <div class="carousel-item active">
                         <img src="../assets/img/gambarr.jpg" class="d-block w-50 rounded" alt="...">
