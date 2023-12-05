@@ -12,10 +12,10 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
-    <a href="../admin/dashboard.php" class="text-white ms-3">
+    <a href="../admin/view/dashboard.php" class="text-white ms-3">
         <i class="fa-solid fa-xl fa-shop"></i>
     </a>
-    <a href="#" class="text-white navbar-hover">
+    <a href="../admin/view/profil.php" class="text-white navbar-hover">
         <i class="fas fa-user-circle fa-2xl mx-4"></i>
     </a>
     <a href="../config/auth-logout.php" class="text-white">

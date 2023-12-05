@@ -1,5 +1,5 @@
 <?php
-require('../partials/session-admin.php');
+require('../../partials/session-admin.php');
 ?>
 
 <!DOCTYPE html>
@@ -7,17 +7,17 @@ require('../partials/session-admin.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/main.css" />
     <title>Document</title>
 </head>
 <body>
-    <?php require"../partials/navbar-dashboard-admin.php" ?>
+    <?php require"../../partials/navbar-dashboard-admin.php" ?>
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 bg-navigation-primary pr-3 pt-4">
-            <?php require"../partials/sidebar-dashboard-admin.php" ?>
+            <?php require"../../partials/sidebar-dashboard-admin.php" ?>
         </div>
         <div class="col-md-10 p-4">
             <h3><i class="fas fa-tv me-3"></i>Dashboard</h3>

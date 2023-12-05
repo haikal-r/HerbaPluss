@@ -25,8 +25,8 @@ require('../../partials/session-admin.php');
                 <!-- main content -->
                 <h3><i class="fa-solid fa-box-open me-2"></i>Data Produk</h3>
                 <hr>
-                <button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#tambahproduk">
-                    <i class="fas fa-plus-circle mr-2"></i>TAMBAH DATA PRODUK</button>
+                <button class="btn btn-primary mb-2 " data-bs-toggle="modal" data-bs-target="#tambahproduk">
+                    <i class="fas fa-plus-circle me-2"></i>TAMBAH DATA PRODUK</button>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -54,8 +54,8 @@ require('../../partials/session-admin.php');
                             <td><?php echo $data['stok'] ?></td>
                             <td><?php echo $data['gambar'] ?></td>
                             <td>
-                                <a href="../controller/ubah-produk.php?id=<?= $data["id"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id']; ?>">ubah</a>
-                                <a href="../controller/hapus-produk.php?id=<?= $data["id"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id']; ?>">hapus</a>
+                                <a href="../controller/ubah-produk.php?id=<?= $data["id"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id']; ?>">Edit</a>
+                                <a href="../controller/hapus-produk.php?id=<?= $data["id"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id']; ?>">Delete</a>
                             </td>
                         </tr>
 
@@ -96,8 +96,8 @@ require('../../partials/session-admin.php');
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button id="nosave" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Batal</button>
-                                                    <input type="submit" name="submit" class="btn btn-primary" value="Simpan">
+                                                    <button id="nosave" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancel</button>
+                                                    <input type="submit" name="submit" class="btn btn-primary" value="Save">
                                                 </div>
                                             </form>
                                         </div>
@@ -153,7 +153,7 @@ require('../../partials/session-admin.php');
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button id="noedit" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Batal</button>
+                                                        <button id="noedit" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancel</button>
                                                         <input type="submit" name="submit" class="btn btn-primary" value="Update">
                                                     </div>
                                                 <?php
