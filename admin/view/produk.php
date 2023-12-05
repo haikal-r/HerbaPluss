@@ -55,7 +55,7 @@ require('../../partials/session-admin.php');
                             <td><?php echo $data['gambar'] ?></td>
                             <td>
                                 <a href="../controller/ubah-produk.php?id=<?= $data["id"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id']; ?>">ubah</a>
-                                <a href="../controller/hapus-produk.php?id=<?= $data["id"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk">hapus</a>
+                                <a href="../controller/hapus-produk.php?id=<?= $data["id"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id']; ?>">hapus</a>
                             </td>
                         </tr>
 
@@ -96,7 +96,7 @@ require('../../partials/session-admin.php');
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button id="nosave" type="button" class="btn btn-danger pull-left" datadismiss="modal">Batal</button>
+                                                    <button id="nosave" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Batal</button>
                                                     <input type="submit" name="submit" class="btn btn-primary" value="Simpan">
                                                 </div>
                                             </form>
@@ -139,7 +139,7 @@ require('../../partials/session-admin.php');
                                                         <div class="row mb-3 f-dlex align-items-center">
                                                             <label class="col-sm-3 control-label text-right">Deskripsi</label>
                                                             <div class="col-sm-8"><input type="text" class="form-control" name="deskripsi" value="<?php echo
-                                                                                                                                                $data1['deskripsi']; ?>">
+                                                                                                                                                    $data1['deskripsi']; ?>">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -153,7 +153,7 @@ require('../../partials/session-admin.php');
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button id="noedit" type="button" class="btn btn-danger pull-left" datadismiss="modal">Batal</button>
+                                                        <button id="noedit" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Batal</button>
                                                         <input type="submit" name="submit" class="btn btn-primary" value="Update">
                                                     </div>
                                                 <?php
@@ -166,11 +166,35 @@ require('../../partials/session-admin.php');
                             </div>
                         </div>
                         <!-- END MODAL UBAH -->
-                    <?php
-                    }
-                    ?>
+
+                        <!-- START MODAL HAPUS -->
+                        <div class="example-modal">
+                            <div id="hapusproduk<?php echo $data['id']; ?>" class="modal fade" role="dialog" style="display:none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">Konfirmasi Hapus Data</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 align="center">Apakah anda yakin ingin menghapus Produk -
+                                                <?php echo $data['nama_barang']; ?><strong><span class="grt"></span></strong> ?
+                                            </h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button id="nodelete" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancle</button>
+                                            <a href="../controller/hapus-produk.php?id=<?php echo $data['id']; ?>" class="btn btn-primary">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
             </div>
+            <!-- END MODAL HAPUS -->
+        <?php
+                    }
+        ?>
         </div>
+    </div>
     </div>
 
     <!-- BEGIN: Vendor JS -->
