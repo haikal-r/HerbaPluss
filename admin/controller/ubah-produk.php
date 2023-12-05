@@ -1,13 +1,12 @@
 <?php
-// include database connection file
-include '../config/index.php';
+include '../../config/index.php';
+$id = $_GET['id'];
+$result = mysqli_query($conn, "SELECT * FROM product WHERE id='$id'");
+while ($data = mysqli_fetch_array($result)) {
+    $nama = $data['nama_barang'];
+    $harga = $data['harga'];
+    $deskripsi = $data['deskripsi'];
+    $stok = $data['stok'];
+}
+?>
 
-$nama = $_POST['nama_barang'];
-$harga = $_POST['harga'];
-$stok = $_POST['stok'];
-$gambar = $_POST['gambar'];
-$result = mysqli_query($koneksi, "UPDATE product SET
-nama_barang='$nama',harga='$harga',stok='$stok' WHERE gambar='$gambar'");
-
-// Redirect to homepage to display updated user in list
-header("Location: index.php");
