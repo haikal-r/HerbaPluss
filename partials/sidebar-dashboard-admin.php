@@ -17,16 +17,4 @@
         </a>
         <hr class="bg-secondary">
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-white link-hover rounded py-3" href="#">
-            <i class="fas fa-users me-2"></i>Daftar Pegawai
-        </a>
-        <hr class="bg-secondary">
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-white link-hover rounded py-3" href="#">
-            <i class="far fa-calendar-alt me-2"></i>Jadwal Kuliah
-        </a>
-        <hr class="bg-secondary">
-    </li>
 </ul>
