@@ -75,61 +75,23 @@ $user = $_SESSION['username'];
                 <h3>Katalog Produk</h3>
             </div>
             <div class="d-flex gap-3 justify-content-center">
+                <?php
+                    include '../config/index.php';
+
+                    $query = mysqli_query($conn, "SELECT * FROM product LIMIT 5");
+                    while ($data = mysqli_fetch_assoc($query)) {
+                ?>
                 <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
+                    <img src="../upload/image/<?php echo $data['gambar']?>" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column justify-content-end">
+                        <h5 class="fw-bold"><?php echo $data['nama_barang']?></h5>
+                        <p class="card-text text-secondary fw-medium"><?php echo $data['harga']?></p>
+                        
                     </div>
                 </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </section>
