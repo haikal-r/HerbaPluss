@@ -42,9 +42,9 @@ $user = $_SESSION['username'];
                 <img src="../upload/image/<?php echo $produk['gambar'] ?>" alt="" class="w-100">
             </div>
             <div class="d-flex flex-column mt-3 gap-2">
-                <h1 class="fw-bold opacity-75 "><?php echo $produk['nama_barang'] ?></h1>
+                <h1 class="fw-bold "><?php echo $produk['nama_barang'] ?></h1>
                 <div class="bg-body-secondary p-4 ">
-                    <h1 class="text-success">
+                    <h1 class="text-success fw-medium">
                         <?php echo $produk['harga'] ?>
                     </h1>
                 </div>
@@ -67,6 +67,7 @@ $user = $_SESSION['username'];
             </div>
             <div class="d-flex gap-3 justify-content-center">
                 <?php
+                // randomize product
                 $queryProdukRandom = mysqli_query($conn, "SELECT * FROM product ORDER BY RAND() LIMIT 5");
                 while ($data = mysqli_fetch_assoc($queryProdukRandom)) {
                 ?>
