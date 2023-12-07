@@ -25,20 +25,22 @@ require('../../partials/session-admin.php');
                 <!-- main content -->
                 <h3><i class="fa-solid fa-box-open me-2"></i>Data Produk</h3>
                 <hr>
-                <button class="btn btn-primary mb-2 " data-bs-toggle="modal" data-bs-target="#tambahproduk">
+                <button class="btn btn-primary mb-2 " data-bs-toggle="modal" data-bs-target="#tambahProduk">
                     <i class="fas fa-plus-circle me-2"></i>TAMBAH DATA PRODUK</button>
-                <table class="table table-striped table-bordered">
-                    <thead>
+                <div class="table-responsive">
+                <table class="table table-striped table-bordered align-top">
+                    <thead class="align-middle">
                         <tr>
                             <th scope="col">NO</th>
+                            <th scope="col">Gambar</th>
                             <th scope="col">Nama Produk</th>
                             <th scope="col">Harga</th>
-                            <th scope="col">Deskripsi</th>
+                            <th scope="col" style="width: 30%;">Deskripsi</th>
                             <th scope="col">Stok</th>
-                            <th scope="col">Gambar</th>
                             <th colspan="3" scope="col">AKSI</th>
                         </tr>
                     </thead>
+                    <tbody>
                     <?php
                     require '../../config/index.php';
 
@@ -48,63 +50,67 @@ require('../../partials/session-admin.php');
                     ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
+                            <td class="text-center border border-2">
+                                <?php echo " <img src='../../upload/image/". $data['gambar'] ."' width='100' height='100'> " ?>
+                            </td>
                             <td><?php echo $data['nama_barang'] ?></td>
                             <td><?php echo $data['harga'] ?></td>
                             <td><?php echo $data['deskripsi'] ?></td>
                             <td><?php echo $data['stok'] ?></td>
-                            <td><?php echo $data['gambar'] ?></td>
                             <td>
                                 <a href="../controller/ubah-produk.php?id=<?= $data["id"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id']; ?>">Edit</a>
                                 <a href="../controller/hapus-produk.php?id=<?= $data["id"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id']; ?>">Delete</a>
                             </td>
                         </tr>
+                    </tbody>
+             
+                </div>
 
 
                         <!-- START MODAL TAMBAH -->
-                        <div class="example-modal">
-                            <div id="tambahproduk" class="modal fade" role="dialog" style="display:none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title">Tambah Data Baru</h3>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="../controller/simpan-produk.php" method="post" role="form">
-                                                <div class="row mb-3">
-                                                    <label class="col-sm-3 control-label text-right">Nama barang</label>
-                                                    <div class="col-sm-8"><input type="text" class="form-control" name="nama_barang" placeholder="nama barang" value=""></div>
+                        <div class="modal fade" id="tambahProduk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Tambah Data Baru</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="../controller/simpan-produk.php" method="post" role="form"  enctype="multipart/form-data">
+                                            <div class="row mb-3">
+                                                <label class="col-sm-3 control-label text-right">Nama barang</label>
+                                                <div class="col-sm-8"><input type="text" class="form-control" name="nama_barang" placeholder="Produk..." value="" autocomplete="off"></div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-3 control-label text-right">Harga</label>
+                                                <div class="col-sm-8"><input type="text" class="form-control" name="harga" placeholder="Rp. 10.000..." value="" autocomplete="off"></div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-3 control-label text-right">Deskripsi</label>
+                                                <div class="col-sm-8"><textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"></textarea>
                                                 </div>
-                                                <div class="row mb-3">
-                                                    <label class="col-sm-3 control-label text-right">Harga</label>
-                                                    <div class="col-sm-8"><input type="text" class="form-control" name="harga" placeholder="NamaDosen" value=""></div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-3 control-label text-right">Stok</label>
+                                                <div class="col-sm-8"><input type="text" name="stok" class="form-control" placeholder="2..." autocomplete="off">
+                                                    </input>
                                                 </div>
-                                                <div class="row mb-3">
-                                                    <label class="col-sm-3 control-label text-right">deskripsi</label>
-                                                    <div class="col-sm-8"><input type="text" class="form-control" name="deskripsi" placeholder="Alamat" id="alamat" value="">
-                                                    </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-3 control-label text-right">Gambar</label>
+                                                <div class="col-sm-8"><input type="file" name="gambar" id="gambar" class="form-control" placeholder="image...">
+                                                    </input>
                                                 </div>
-                                                <div class="row mb-3">
-                                                    <label class="col-sm-3 control-label text-right">stok</label>
-                                                    <div class="col-sm-8"><input type="text" name="stok" class="form-control" placeholder="jabatan">
-                                                        </input>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <label class="col-sm-3 control-label text-right">gambar</label>
-                                                    <div class="col-sm-8"><input type="file" name="gambar" class="form-control" placeholder="jabatan">
-                                                        </input>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button id="nosave" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancel</button>
-                                                    <input type="submit" name="submit" class="btn btn-primary" value="Save">
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="nosave" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancel</button>
+                                                <input type="submit" name="submit" class="btn btn-primary" value="Save">
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <!-- END MODAL TAMBAH -->
 
                         <!-- START MODAL UBAH -->
@@ -188,6 +194,7 @@ require('../../partials/session-admin.php');
                                 </div>
                             </div>
                         </div>
+              
             </div>
             <!-- END MODAL HAPUS -->
         <?php
@@ -197,11 +204,12 @@ require('../../partials/session-admin.php');
     </div>
     </div>
 
+
     <!-- BEGIN: Vendor JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
