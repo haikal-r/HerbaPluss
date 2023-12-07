@@ -17,7 +17,7 @@ $user = $_SESSION['username'];
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Document</title>
 </head>
 
@@ -40,23 +40,23 @@ $user = $_SESSION['username'];
                     </div>
                 </div>
                 <div class="col-9">
-                    <div id="carouselExampleAutoplaying" class="carousel slide bg-white w-100 rounded" data-bs-ride="carousel">
-                        <div class="carousel-inner ">
-                            <div class="carousel-item active">
-                                <img src="../assets/img/gambarr.jpg" class="d-block w-50 object-fit-cover rounded" alt="...">
+                    <div id="carouselExample" class="carousel slide " data-bs-ride="carousel">
+                        <div class="carousel-inner rounded-4">
+                            <div class="carousel-item active c-item ">
+                                <img src="../assets/img/carousel1.jpg" class="d-block w-100  rounded-4" alt="...">
                             </div>
-                            <div class="carousel-item">
-                                <img src="../assets/img/gambarr.jpg" class="d-block w-50 object-fit-cover rounded" alt="...">
+                            <div class="carousel-item c-item">
+                                <img src="../assets/img/carousel2.jpg" class="d-block w-100 c-img rounded-4" alt="...">
                             </div>
-                            <div class="carousel-item">
-                                <img src="../assets/img/gambarr.jpg" class="d-block w-50 object-fit-cover rounded" alt="...">
+                            <div class="carousel-item c-item">
+                                <img src="../assets/img/carousel3.jpg" class="d-block w-100 c-img rounded-4" alt="...">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -75,61 +75,24 @@ $user = $_SESSION['username'];
                 <h3>Katalog Produk</h3>
             </div>
             <div class="d-flex gap-3 justify-content-center">
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
+                <?php
+                include '../config/index.php';
+
+                $query = mysqli_query($conn, "SELECT * FROM product ORDER BY RAND() LIMIT 5");
+                while ($data = mysqli_fetch_assoc($query)) {
+                ?>
+                    <div class="card" style="width: 15rem;">
+                        <a href="detail.php?id=<?= $data['id'] ?>">
+                            <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
+                            <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
                         </div>
                     </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="width: 15rem;">
-                    <img src="../assets/img/gambar3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5>Mastin</h5>
-                        <p class="card-text">Rp300.000</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary me-3">Beli</button>
-                            <button class="btn btn-danger">Beli</button>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -145,61 +108,22 @@ $user = $_SESSION['username'];
                             <a href="#" class="text-decoration-none d-flex align-items-center">Lihat Semua<i class="fa-solid fa-circle-arrow-right fa-lg ms-2"></i></a>
                         </div>
                         <div class="d-flex flex-wrap gap-3 justify-content-start px-3 pb-4">
-                            <div class="card border border-2 p-2" style="width: 17rem;">
-                                <img src="../assets/img/gambar3.jpeg" class="card-img" alt="...">
-                                <div class="card-body">
-                                    <h5>Mastin</h5>
-                                    <p class="card-text">Rp300.000</p>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary me-3">Beli</button>
-                                        <button class="btn btn-danger">Beli</button>
+                            <?php
+                            $query = mysqli_query($conn, "SELECT * FROM product");
+                            while ($data = mysqli_fetch_assoc($query)) {
+                            ?>
+                                <div class="card" style="width: 15rem;">
+                                    <a href="detail.php?id=<?= $data['id'] ?>">
+                                        <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
+                                    </a>
+                                    <div class="card-body d-flex flex-column justify-content-end">
+                                        <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
+                                        <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card border border-2 p-2" style="width: 17rem;">
-                                <img src="../assets/img/gambar3.jpeg" class="card-img" alt="...">
-                                <div class="card-body">
-                                    <h5>Mastin</h5>
-                                    <p class="card-text">Rp300.000</p>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary me-3">Beli</button>
-                                        <button class="btn btn-danger">Beli</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card border border-2 p-2" style="width: 17rem;">
-                                <img src="../assets/img/gambar3.jpeg" class="card-img" alt="...">
-                                <div class="card-body">
-                                    <h5>Mastin</h5>
-                                    <p class="card-text">Rp300.000</p>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary me-3">Beli</button>
-                                        <button class="btn btn-danger">Beli</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card border border-2 p-2" style="width: 17rem;">
-                                <img src="../assets/img/gambar3.jpeg" class="card-img" alt="...">
-                                <div class="card-body">
-                                    <h5>Mastin</h5>
-                                    <p class="card-text">Rp300.000</p>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary me-3">Beli</button>
-                                        <button class="btn btn-danger">Beli</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card border border-2 p-2" style="width: 17rem;">
-                                <img src="../assets/img/gambar3.jpeg" class="card-img" alt="...">
-                                <div class="card-body">
-                                    <h5>Mastin</h5>
-                                    <p class="card-text">Rp300.000</p>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary me-3">Beli</button>
-                                        <button class="btn btn-danger">Beli</button>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

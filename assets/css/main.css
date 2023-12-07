@@ -49,7 +49,12 @@ navbar-hover:hover {
     background-color: black;
 }
 
-#carouselExampleAutoplaying {
-    height: 500px !important;
-    width: 20%;
+.c-item {
+    height: 500px;
+    width: 100%;
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
 }
