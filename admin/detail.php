@@ -34,20 +34,50 @@ $user = $_SESSION['username'];
             <div class="bg-body-secondary w-100 p-2 d-flex justify-content-center align-items-center me-4">
                 <img src="../assets/img/gambar1.jpeg" alt="" class="w-100 ">
             </div>
-            <div class="d-flex flex-column mt-3">
-                <h1>MASTIN</h1>
-                <div class="bg-body-secondary p-4">
+            <div class="d-flex flex-column mt-3 gap-2">
+                <h1 class="fw-bold opacity-75 ">MASTIN</h1>
+                <div class="bg-body-secondary p-4 ">
                     <h1 class="text-success">
                         Rp. 100.000.000
                     </h1>
                 </div>
-                <p>
+                <p class="mt-2">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, perspiciatis consequuntur voluptas blanditiis voluptatem itaque corrupti molestias dolor vel, eligendi saepe aut eveniet atque sequi magni inventore. Ducimus, facere animi?
                 </p>
                 <div class="mt-4 d-flex gap-2">
                     <button type="button" name="keranjang" class="btn btn-outline-success rounded-0 py-3 px-4">Masukan Keranjang</button>
                     <button type="button" name="beli" class="btn btn-success rounded-0 py-3 px-5">Beli Sekarang</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- rekomendasi product -->
+    <section>
+        <div class="container bg-white p-2">
+            <div class="d-flex justify-content-between align-items-center bg-white py-2 px-3 mb-2 border-bottom border-5 border-success">
+                <h4 class="mt-1">Rekomendasi</h4>
+            </div>
+            <div class="d-flex gap-3 justify-content-center">
+                <?php
+                include '../config/index.php';
+
+                $query = mysqli_query($conn, "SELECT * FROM product LIMIT 5");
+                while ($data = mysqli_fetch_assoc($query)) {
+                ?>
+                    <div class="card" style="width: 15rem;">
+                    <a href="detail.php?id=<?= $data['id'] ?>">
+                    <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
+                    </a>
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
+                            <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
             </div>
         </div>
     </section>
