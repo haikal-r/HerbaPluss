@@ -76,21 +76,22 @@ $user = $_SESSION['username'];
             </div>
             <div class="d-flex gap-3 justify-content-center">
                 <?php
-                    include '../config/index.php';
+                include '../config/index.php';
 
-                    $query = mysqli_query($conn, "SELECT * FROM product LIMIT 5");
-                    while ($data = mysqli_fetch_assoc($query)) {
+                $query = mysqli_query($conn, "SELECT * FROM product LIMIT 5");
+                while ($data = mysqli_fetch_assoc($query)) {
                 ?>
-                <div class="card" style="width: 15rem;">
-                    <img src="../upload/image/<?php echo $data['gambar']?>" class="card-img-top" alt="...">
-                    <div class="card-body d-flex flex-column justify-content-end">
-                        <h5 class="fw-bold"><?php echo $data['nama_barang']?></h5>
-                        <p class="card-text text-secondary fw-medium"><?php echo $data['harga']?></p>
-                        
+                    <div class="card" style="width: 15rem;">
+                    <a href="detail.php?id=<?= $data['id'] ?>">
+                    <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
+                    </a>
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
+                            <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
+                        </div>
                     </div>
-                </div>
                 <?php
-                    }
+                }
                 ?>
             </div>
         </div>

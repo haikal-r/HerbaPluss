@@ -1,6 +1,7 @@
 :root{
     --primary-color:  #7AC143;
     --secondary-color: #518611;
+    --tertiary-color: #E4FED8;
   
 }
 
@@ -10,6 +11,10 @@
 
 .primary-color{
     color: var(--primary-color);
+}
+
+.bg-btn-custom {
+    background-color: var(--tertiary-color);
 }
 
 .bg-custom-primary {
@@ -23,6 +28,12 @@
 
 .bg-white {
     background-color: white;
+}
+
+.btn-custom {
+    background-color: var(--tertiary-color);
+    color: white;
+    border: 1px solid var(--primary-color)
 }
 
 .link-hover:hover {
