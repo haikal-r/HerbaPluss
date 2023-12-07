@@ -97,9 +97,9 @@ $user = $_SESSION['username'];
         </div>
     </section>
 
-    <!-- Kategori Product -->
+    <!-- List Product -->
     <section>
-        <div class="container-fluid py-3">
+        <div class="container-xxl py-3">
             <div class="row">
                 <div class="col">
                     <div>
@@ -130,6 +130,8 @@ $user = $_SESSION['username'];
             </div>
         </div>
     </section>
+
+    <?php require '../partials/footer.php' ?>
 
 
     <!-- BEGIN: Vendor JS -->
