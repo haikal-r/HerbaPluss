@@ -131,6 +131,9 @@ $user = $_SESSION['username'];
         </div>
     </section>
 
+    <!-- footer start -->
+    <?php require '../partials/footer.php' ?>
+    <!-- footer end -->
 
     <!-- BEGIN: Vendor JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
