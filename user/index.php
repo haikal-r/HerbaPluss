@@ -27,8 +27,8 @@ $user = $_SESSION['username'];
     <section>
         <div class="container-fluid d-flex justify-content-center py-4 px-5 mb-3">
             <div class="row">
-                <div class="col-3 bg-white rounded-4">
-                    <div class="py-3 ">
+                <div class="col-3 bg-white rounded-4 shadow-sm">
+                    <div class="py-3">
                         <h3 class="text-center"><i class="fa-solid fa-grip me-2"></i>Kategori</h3>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">An item</li>
@@ -70,8 +70,8 @@ $user = $_SESSION['username'];
 
     <!-- Katalog product -->
     <section>
-        <div class="container d-flex flex-column bg-white pb-4 pt-3 my-3">
-            <div class="bg-white p-1 mb-1">
+        <div class="container d-flex flex-column bg-white pb-4 pt-3 my-3 shadow-sm">
+            <div class="bg-white p-1 mb-1 ">
                 <h3>Katalog Produk</h3>
             </div>
             <div class="d-flex gap-3 justify-content-center">
@@ -82,7 +82,7 @@ $user = $_SESSION['username'];
                 while ($data = mysqli_fetch_assoc($query)) {
                 ?>
                     <div class="card" style="width: 15rem;">
-                        <a href="detail.php?id=<?= $data['id'] ?>">
+                        <a href="detail.php?id=<?= $data['id_product'] ?>">
                             <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">
@@ -113,7 +113,7 @@ $user = $_SESSION['username'];
                             while ($data = mysqli_fetch_assoc($query)) {
                             ?>
                                 <div class="card" style="width: 15rem;">
-                                    <a href="detail.php?id=<?= $data['id'] ?>">
+                                    <a href="detail.php?id=<?= $data['id_product'] ?>">
                                         <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                                     </a>
                                     <div class="card-body d-flex flex-column justify-content-end">

@@ -30,8 +30,7 @@ $user = $_SESSION['username'];
             <h3><i class="fas fa-user-circle fa-lg me-3"></i>Profil</h3>
             <hr>
             <!-- main content -->
-            
-
+        
 
 
             <!-- end content content -->

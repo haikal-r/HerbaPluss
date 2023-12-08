@@ -35,7 +35,7 @@ $user = $_SESSION['username'];
             require '../config/index.php';
 
             $id = $_GET['id'];
-            $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id='$id'");
+            $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
             $produk = mysqli_fetch_array($queryProduk);
             ?>
             <div class="bg-body-secondary w-100 p-2 d-flex justify-content-center align-items-center me-4">
@@ -72,7 +72,7 @@ $user = $_SESSION['username'];
                 while ($data = mysqli_fetch_assoc($queryProdukRandom)) {
                 ?>
                     <div class="card" style="width: 15rem;">
-                        <a href="detail.php?id=<?= $data['id'] ?>">
+                        <a href="detail.php?id=<?= $data['id_product'] ?>">
                             <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">

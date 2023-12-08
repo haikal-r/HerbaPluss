@@ -58,15 +58,13 @@ require('../../partials/session-admin.php');
                             <td><?php echo $data['deskripsi'] ?></td>
                             <td><?php echo $data['stok'] ?></td>
                             <td>
-                                <a href="../controller/ubah-produk.php?id=<?= $data["id"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id']; ?>">Edit</a>
-                                <a href="../controller/hapus-produk.php?id=<?= $data["id"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id']; ?>">Delete</a>
+                                <a href="../controller/ubah-produk.php?id=<?= $data["id_product"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id_product']; ?>">Edit</a>
+                                <a href="../controller/hapus-produk.php?id=<?= $data["id_product"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id_product']; ?>">Delete</a>
                             </td>
                         </tr>
                     </tbody>
              
                 </div>
-
-
                         <!-- START MODAL TAMBAH -->
                         <div class="modal fade" id="tambahProduk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -115,7 +113,7 @@ require('../../partials/session-admin.php');
 
                         <!-- START MODAL UBAH -->
                         <div class="example-modal">
-                            <div class="modal fade" id="ubahproduk<?php echo $data['id']; ?>" role="dialog">
+                            <div class="modal fade" id="ubahproduk<?php echo $data['id_product']; ?>" role="dialog">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -124,8 +122,8 @@ require('../../partials/session-admin.php');
                                         <div class="modal-body">
                                             <form action="../controller/update-produk.php" method="post" role="form">
                                                 <?php
-                                                $id = $data['id'];
-                                                $query1 = mysqli_query($conn, "SELECT * FROM product WHERE id='$id'");
+                                                $id = $data['id_product'];
+                                                $query1 = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
                                                 while ($data1 = mysqli_fetch_assoc($query1)) {
                                                 ?>
                                                     <div class="form-group">
@@ -175,7 +173,7 @@ require('../../partials/session-admin.php');
 
                         <!-- START MODAL HAPUS -->
                         <div class="example-modal">
-                            <div id="hapusproduk<?php echo $data['id']; ?>" class="modal fade" role="dialog" style="display:none;">
+                            <div id="hapusproduk<?php echo $data['id_product']; ?>" class="modal fade" role="dialog" style="display:none;">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -188,7 +186,7 @@ require('../../partials/session-admin.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button id="nodelete" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancle</button>
-                                            <a href="../controller/hapus-produk.php?id=<?php echo $data['id']; ?>" class="btn btn-primary">Delete</a>
+                                            <a href="../controller/hapus-produk.php?id=<?php echo $data['id_product']; ?>" class="btn btn-primary">Delete</a>
                                         </div>
                                     </div>
                                 </div>
