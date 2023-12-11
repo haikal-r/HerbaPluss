@@ -19,7 +19,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-white link-hover rounded py-3" href="../../admin/view/konsumen.php">
-        <i class="fa-solid fa-users fa-lg me-3"></i>Data User
+        <i class="fa-solid fa-users fa-lg me-3"></i>Data Konsumen
         </a>
         <hr class="bg-secondary">
     </li>

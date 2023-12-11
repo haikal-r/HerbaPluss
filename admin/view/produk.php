@@ -28,8 +28,8 @@ require('../../partials/session-admin.php');
                 <button class="btn btn-primary mb-2 " data-bs-toggle="modal" data-bs-target="#tambahProduk">
                     <i class="fas fa-plus-circle me-2"></i>TAMBAH DATA PRODUK</button>
                 <div class="table-responsive">
-                <table class="table table-striped table-bordered align-top">
-                    <thead class="align-middle">
+                <table class="table table-bordered align-top">
+                    <thead class="align-middle table-light">
                         <tr>
                             <th scope="col">NO</th>
                             <th scope="col">Gambar</th>
@@ -50,7 +50,7 @@ require('../../partials/session-admin.php');
                     ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td class="text-center border border-2">
+                            <td class="text-center">
                                 <?php echo " <img src='../../upload/image/". $data['gambar'] ."' width='100' height='100'> " ?>
                             </td>
                             <td><?php echo $data['nama_barang'] ?></td>
@@ -129,7 +129,7 @@ require('../../partials/session-admin.php');
                                                     <div class="form-group">
                                                         <div class="row mb-3 f-dlex align-items-center">
                                                             <label class="col-sm-3 control-label text-right">Nama Produk</label>
-                                                            <div class="col-sm-8"><input type="text" class="form-control" name="nama" value="<?php echo $data1['nama_barang']; ?>"></div>
+                                                            <div class="col-sm-8"><input type="text" class="form-control" name="nama" value="<?php echo $data1['nama_barang']; ?>" disabled></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -199,8 +199,10 @@ require('../../partials/session-admin.php');
                     }
         ?>
         </div>
+                </table>
     </div>
     </div>
+
 
 
     <!-- BEGIN: Vendor JS -->
