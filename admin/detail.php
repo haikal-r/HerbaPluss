@@ -1,11 +1,13 @@
 <?php
 session_start();
+require '../config/index.php';
 if (!isset($_SESSION['username'])) {
     header('location: ../login.php ');
     exit;
 }
 
 $user = $_SESSION['username'];
+$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
 ?>
 
 
@@ -32,18 +34,17 @@ $user = $_SESSION['username'];
     <section>
         <div class="container bg-white d-flex my-4 p-3">
             <?php
-            require '../config/index.php';
 
             $id = $_GET['id'];
             $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
             $produk = mysqli_fetch_array($queryProduk);
             ?>
-            <div class="bg-body-secondary w-100 p-2 d-flex justify-content-center align-items-center me-4">
+            <div class="bg-body-tertiary w-100 p-2 d-flex justify-content-center align-items-center me-4">
                 <img src="../upload/image/<?php echo $produk['gambar'] ?>" alt="" class="w-100">
             </div>
             <div class="d-flex flex-column mt-3 gap-2">
                 <h1 class="fw-bold "><?php echo $produk['nama_barang'] ?></h1>
-                <div class="bg-body-secondary p-4 ">
+                <div class="bg-body-tertiary p-4 shadow-sm">
                     <h1 class="text-success fw-medium">
                         <?php echo $produk['harga'] ?>
                     </h1>
@@ -51,10 +52,6 @@ $user = $_SESSION['username'];
                 <p class="mt-2">
                     <?php echo $produk['deskripsi'] ?>
                 </p>
-                <div class="mt-4 d-flex gap-2">
-                    <button type="button" name="keranjang" class="btn btn-outline-success rounded-0 py-3 px-4">Masukan Keranjang</button>
-                    <button type="button" name="beli" class="btn btn-success rounded-0 py-3 px-5">Beli Sekarang</button>
-                </div>
             </div>
         </div>
     </section>
