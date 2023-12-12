@@ -1,7 +1,7 @@
 <?php
 // include database connection file
 include '../../config/index.php';
-$id = $_GET['id_product'];
+$id = $_GET['id'];
 $nama = $_POST['nama'];
 $harga=$_POST['harga'];
 $deskripsi=$_POST['deskripsi'];

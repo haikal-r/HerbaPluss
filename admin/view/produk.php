@@ -76,11 +76,11 @@ require('../../partials/session-admin.php');
                                         <form action="../controller/simpan-produk.php" method="post" role="form"  enctype="multipart/form-data">
                                             <div class="row mb-3">
                                                 <label class="col-sm-3 control-label text-right">Nama barang</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control" name="nama_barang" placeholder="Produk..." value="" autocomplete="off"></div>
+                                                <div class="col-sm-8"><input type="text" class="form-control" name="nama_barang" placeholder="Produk..." value="" required></div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-sm-3 control-label text-right">Harga</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control" name="harga" placeholder="Rp. 10.000..." value="" autocomplete="off"></div>
+                                                <div class="col-sm-8"><input type="text" class="form-control" name="harga" placeholder="Rp. 10.000..." value="" required></div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-sm-3 control-label text-right">Deskripsi</label>
@@ -89,7 +89,7 @@ require('../../partials/session-admin.php');
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-sm-3 control-label text-right">Stok</label>
-                                                <div class="col-sm-8"><input type="text" name="stok" class="form-control" placeholder="2..." autocomplete="off">
+                                                <div class="col-sm-8"><input type="text" name="stok" class="form-control" placeholder="2..." required>
                                                     </input>
                                                 </div>
                                             </div>
@@ -120,7 +120,7 @@ require('../../partials/session-admin.php');
                                             <h3 class="modal-title">Edit Data Mahasiswa</h3>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="../controller/update-produk.php" method="post" role="form">
+                                            <form action="../controller/update-produk.php?id=<?= $data['id_product'] ?>" method="post" role="form">
                                                 <?php
                                                 $id = $data['id_product'];
                                                 $query1 = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
@@ -129,7 +129,7 @@ require('../../partials/session-admin.php');
                                                     <div class="form-group">
                                                         <div class="row mb-3 f-dlex align-items-center">
                                                             <label class="col-sm-3 control-label text-right">Nama Produk</label>
-                                                            <div class="col-sm-8"><input type="text" class="form-control" name="nama" value="<?php echo $data1['nama_barang']; ?>" disabled></div>
+                                                            <div class="col-sm-8"><input type="text" class="form-control" name="nama" value="<?php echo $data1['nama_barang']; ?>"></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
