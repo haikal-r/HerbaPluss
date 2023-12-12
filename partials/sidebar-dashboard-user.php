@@ -1,4 +1,4 @@
-<ul class="nav flex-column pr-4 mb-5 d-none d-sm-block min-vh-10">
+<ul class="nav flex-column pr-4 mb-5 d-none d-sm-block min-vh-100">
     <li class="nav-item">
         <a class="nav-link active text-white link-hover rounded py-3" href="../user/dashboard.php">
             <i class="fas fa-tachometer-alt fa-lg me-2"></i>Dashboard

@@ -15,6 +15,7 @@ $data = mysqli_query($conn, "SELECT * FROM user WHERE username='$username'");
             // set session
             $_SESSION['username'] = $row['username'];
             $_SESSION['password'] = $row['password'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION["role"] = $row['role'];
             $_SESSION["login"] = true;
 

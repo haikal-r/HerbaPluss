@@ -7,6 +7,7 @@ function registrasi($data) {
     $username = htmlspecialchars($data["username"]);
 	$email = htmlspecialchars($data["email"]);
 	$password = mysqli_real_escape_string($conn, $data["password"]);
+    $alamat = htmlspecialchars($data['alamat']);
     $role = $_POST['role'];
 
 	// cek email sudah ada atau belum
@@ -22,7 +23,7 @@ function registrasi($data) {
 	// enkripsi password
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
-	$query = "INSERT INTO `user`(`role`, `username`, `email`, `password`) VALUES ('$role', '$username', '$email', '$password')";
+	$query = "INSERT INTO `user`(`role`, `username`, `email`, `password`, `alamat`) VALUES ('$role', '$username', '$email', '$password', '$alamat')";
 	mysqli_query($conn, $query);
 
 	return mysqli_affected_rows($conn);

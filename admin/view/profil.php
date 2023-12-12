@@ -6,6 +6,8 @@ if (!isset($_SESSION['username'])) {
 }
 
 $user = $_SESSION['username'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,48 +36,78 @@ $user = $_SESSION['username'];
                 <div class="row gap-3">
                     <div class="col bg-body-secondary min-vh-100">
                         <div class="d-flex flex-column py-3">
-                            <h5 class="m-0">Profil saya</h5>
-                            <hr />
-                            <div class="d-flex justify-content-center my-3">
-                                <img src="../../assets/img/steia.png" alt="" class="w-full h-full absolute bg-white rounded-circle" width="100" height="100">
-                            </div>
-                            <div class="my-2">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control " name="email" readonly />
-                            </div>
-                            <div class="my-2">
-                                <label for="username" class="form-label">Username </label>
-                                <input type="text" class="form-control " name="username" readonly />
-                            </div>
-                            <div class="my-2">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control " name="password" readonly />
-                            </div>
+                            <?php
+                            require '../../config/index.php';
+                            $query = mysqli_query($conn, "SELECT * FROM user");
+                            $data = mysqli_fetch_assoc($query);
+                            $id = $data['id_user'];
+                            $query1 = mysqli_query($conn, "SELECT * FROM user WHERE id_user='$id'");
+                            while ($data = mysqli_fetch_assoc($query1)) {
+                            ?>
+                                <h5 class="m-0">Profil saya</h5>
+                                <hr />
+                                <div class="d-flex justify-content-center my-3">
+                                    <img src="../../assets/img/steia.png" alt="" class="w-full h-full absolute bg-white rounded-circle" width="100" height="100">
+                                </div>
+                                <div class="my-2">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control " name="email" placeholder="<?php echo $data['email'] ?>" readonly />
+                                </div>
+                                <div class="my-2">
+                                    <label for="username" class="form-label">Username </label>
+                                    <input type="text" class="form-control " name="Username" placeholder="<?php echo $data['username'] ?>" readonly />
+                                </div>
+                                <div class="my-2">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <input type="text" class="form-control " name="alamat" placeholder="<?php echo $data['alamat'] ?>" readonly />
+                                </div>
+                                <div class="my-2">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control " name="password" placeholder="******" readonly />
+                                </div>
                         </div>
+
                     </div>
                     <div class="col bg-body-secondary min-vh-100">
                         <div class="d-flex flex-column py-3">
                             <h5 class="m-0">Ubah data</h5>
                             <hr />
-                            <form action="" autocomplete="off">
-                            <div class="row ">
-                                <div class="col-4">
-                                    <label for="username" class="col-form-label w-100  mb-3" >Username</label>
-                                    <label for="email" class="col-form-label w-100 mb-3">Email</label>
-                                    <label for="password" class="col-form-label w-100 mb-3">Password</label>
-                                    <label for="alamat" class="col-form-label w-100 mb-3">Alamat</label>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-control mb-3" name="username">
-                                    <input type="password" class="form-control mb-3" name="email">
-                                    <input type="password" class="form-control mb-3" name="password">
-                                    <input type="text" class="form-control mb-3" name="alamat">
-                                    <div class=" d-flex justify-content-end mt-4">
-                                    <button type="submit" class="btn btn-primary w-50">Submit</button>
+                            <form action="../controller/update-profil.php?id=<?= $data['id_user'] ?>" method="post" role="form">
+                                <div class="form-group">
+                                    <div class="row mb-3 d-flex align-items-center">
+                                        <label class="col-sm-3 control-label text-right">Email</label>
+                                        <div class="col-sm-9"><input type="text" class="form-control" name="email" required></div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <div class="row mb-3 d-flex align-items-center">
+                                        <label class="col-sm-3 control-label text-right">username</label>
+                                        <div class="col-sm-9"><input type="text" class="form-control" name="username" required></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row mb-3 d-flex align-items-center">
+                                        <label class="col-sm-3 control-label text-right">alamat</label>
+                                        <div class="col-sm-9"><input type="text" class="form-control" name="alamat" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row mb-3 d-flex align-items-center">
+                                        <label class="col-sm-3 control-label text-right">password</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="password" class="form-control" required>
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" name="ubah" class="btn btn-primary border-0 w-25">Ubah</button>
+                                </div>
                             </form>
+                        <?php
+                            }
+                        ?>
                         </div>
                     </div>
                 </div>

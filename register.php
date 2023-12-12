@@ -41,6 +41,10 @@ if( isset($_POST["register"]) ) {
                     <input type="email" class="form-control" name="email"/>
                 </div>
                 <div class="pb-3">
+                    <h1>Alamat</h1>
+                    <input type="text" class="form-control" name="alamat"/>
+                </div>
+                <div class="pb-3">
                     <h1>Username</h1>
                     <input type="text" class="form-control" name="username" />
                 </div>
@@ -56,7 +60,7 @@ if( isset($_POST["register"]) ) {
                         <option value="penjual">Penjual</option>    
                     </select>
                 </div>
-                <div class="py-3">
+                <div class="pb-3">
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="./login.php" class="create-account me-5">Allready have account?</a>
                         <button class="btn form-control text-white ms-2" type="submit" name="register">Next</button>

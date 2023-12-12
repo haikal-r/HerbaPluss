@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-navigation-primary">
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <a class="navbar-brand ms-3" href="#">
     <img src="../../assets/HerbaPluss.svg" alt="" width="200" height="50">
     </a>

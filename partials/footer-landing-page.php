@@ -1,5 +1,5 @@
-<footer class="py-5 bg-white">
-    <div class="container-xl mx-auto">
+<footer class="py-5 mt-5 bg-white">
+    <div class="container-xl my-4 mx-auto">
         <div class="row gap-5">
             <div class="col-5">
                 <img src="./assets/HerbaPluss.svg" alt="">
