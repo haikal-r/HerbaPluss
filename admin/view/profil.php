@@ -92,29 +92,29 @@ $user = $_SESSION['username'];
                                 </div>
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
-                                        <label class="col-sm-3 control-label text-right">username</label>
+                                        <label class="col-sm-3 control-label text-right">Username</label>
                                         <div class="col-sm-9"><input type="text" class="form-control" name="username" required></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
-                                        <label class="col-sm-3 control-label text-right">alamat</label>
+                                        <label class="col-sm-3 control-label text-right">Alamat</label>
                                         <div class="col-sm-9"><input type="text" class="form-control" name="alamat" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
-                                        <label class="col-sm-3 control-label text-right">password</label>
+                                        <label class="col-sm-3 control-label text-right">Password</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="password" class="form-control" required>
+                                            <input type="password" name="password" class="form-control" required>
                                             </input>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
-                                        <label class="col-sm-3 control-label text-right">profil</label>
+                                        <label class="col-sm-3 control-label text-right">Profil</label>
                                         <div class="col-sm-9">
                                             <input type="file" name="gambar" class="form-control" required>
                                             </input>
