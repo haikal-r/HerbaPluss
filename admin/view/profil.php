@@ -54,7 +54,7 @@ $user = $_SESSION['username'];
                                     <?php
                                     } else {
                                     ?>
-                                        <img src="../../assets/img/download.jpeg" alt="" class="w-full h-full bg-white rounded-circle" width="100" height="100">
+                                        <img src="../../assets/img/profile-place-holder.jpg" alt="" class="w-full h-full bg-white rounded-circle" width="100" height="100">
                                     <?php
                                     }
 

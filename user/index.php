@@ -87,7 +87,7 @@ $user = $_SESSION['username'];
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">
                             <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
-                            <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
+                            <p class="card-text text-secondary fw-medium"><?php echo formatRupiah($data['harga']) ?></p>
                         </div>
                     </div>
                 <?php
@@ -118,7 +118,7 @@ $user = $_SESSION['username'];
                                     </a>
                                     <div class="card-body d-flex flex-column justify-content-end">
                                         <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
-                                        <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
+                                        <p class="card-text text-secondary fw-medium"><?php echo formatRupiah($data['harga']) ?></p>
                                     </div>
                                 </div>
                             <?php

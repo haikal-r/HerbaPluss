@@ -117,7 +117,7 @@ require('../../partials/session-admin.php');
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h3 class="modal-title">Edit Data Mahasiswa</h3>
+                                            <h3 class="modal-title">Edit Data Produk</h3>
                                         </div>
                                         <div class="modal-body">
                                             <form action="../controller/update-produk.php?id=<?= $data['id_product'] ?>" method="post" role="form">
@@ -142,8 +142,7 @@ require('../../partials/session-admin.php');
                                                     <div class="form-group">
                                                         <div class="row mb-3 f-dlex align-items-center">
                                                             <label class="col-sm-3 control-label text-right">Deskripsi</label>
-                                                            <div class="col-sm-8"><input type="text" class="form-control" name="deskripsi" value="<?php echo
-                                                                                                                                                    $data1['deskripsi']; ?>">
+                                                            <div class="col-sm-8"><textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" ><?= $data1['deskripsi']?></textarea>
                                                             </div>
                                                         </div>
                                                     </div>

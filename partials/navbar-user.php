@@ -12,14 +12,14 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
-    <a href="../user/profil.php" class="text-white navbar-hover">
-        <i class="fas fa-user-circle fa-2xl me-2 "></i>
-    </a>
-    <a href="#" class="text-white navbar-hover ms-3">
+    <a href="#" class="text-white navbar-hover me-2">
         <i class="fa-solid fa-cart-shopping fa-xl "></i>
     </a>
+    <a href="../user/profil.php" class="text-white navbar-hover">
+        <i class="fas fa-user-circle fa-2xl mx-3 "></i>
+    </a>
     <a href="../config/auth-logout.php" class="text-white">
-        <i class="fas fa-sign-out-alt fa-xl mx-3"></i>
+        <i class="fas fa-sign-out-alt fa-xl ms-2"></i>
     </a>
   </div>
 </nav>

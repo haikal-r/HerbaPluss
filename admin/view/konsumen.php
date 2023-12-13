@@ -26,45 +26,55 @@ require('../../partials/session-admin.php');
                 <hr>
                 <!-- main content -->
                 <div class="table-responsive">
-                <table class="table table-bordered align-top">
-                    <thead class="align-middle table-light">
-                        <tr>
-                            <th scope="col" style="width: 10%;">NO</th>
-                            <th scope="col" style="width: 10%;">Gambar</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Username</th>
-                            <th scope="col" style="width: 30%;">Alamat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <table class="table table-bordered align-top">
+                        <thead class="align-middle table-light">
+                            <tr>
+                                <th scope="col" style="width: 10%;">NO</th>
+                                <th scope="col" style="width: 10%;">Gambar</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Username</th>
+                                <th scope="col" style="width: 30%;">Alamat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            require '../../config/index.php';
+
+                            $query = mysqli_query($conn, "SELECT * FROM user WHERE role = 'pembeli'");
+                            $no = 1;
+                            while ($data = mysqli_fetch_assoc($query)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($data['gambar']) {
+                                        ?>
+                                            <img src="../../upload/image/<?= $data['gambar'] ?>" alt="" class="w-full h-full  bg-white rounded-circle" width="100" height="100">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <img src="../../assets/img/profile-place-holder.jpg" alt="" class="w-full h-full bg-white rounded-circle" width="100" height="100">
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?php echo $data['email'] ?></td>
+                                    <td><?php echo $data['username'] ?></td>
+                                    <td><?php echo $data['alamat'] ?></td>
+                                </tr>
+                        </tbody>
                     <?php
-                    require '../../config/index.php';
-
-                    $query = mysqli_query($conn, "SELECT * FROM user WHERE role = 'pembeli'");
-                    $no = 1;
-                    while ($data = mysqli_fetch_assoc($query)) {
-                    ?>
-                        <tr>
-                            <td><?php echo $no++; ?></td>
-                            <td class="text-center">
-                                <?php echo " <img src='../../upload/image/". $data['gambar'] ."' class='rounded-circle' width='100' height='100'> " ?>
-                            </td>
-                            <td><?php echo $data['email'] ?></td>
-                            <td><?php echo $data['username'] ?></td>
-                            <td><?php echo $data['alamat'] ?></td>
-                        </tr>
-                    </tbody>
-                    <?php
-                    }
+                            }
                     ?>
 
 
 
 
-                <!-- end content content -->
+                    <!-- end content content -->
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

@@ -35,7 +35,7 @@ $user = $_SESSION['username'];
             require './config/index.php';
 
             $id = $_GET['id'];
-            $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id='$id'");
+            $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
             $produk = mysqli_fetch_array($queryProduk);
             ?>
             <div class="bg-body-secondary w-100 p-2 d-flex justify-content-center align-items-center me-4">
@@ -45,7 +45,7 @@ $user = $_SESSION['username'];
                 <h1 class="fw-bold "><?php echo $produk['nama_barang'] ?></h1>
                 <div class="bg-body-secondary p-4 ">
                     <h1 class="text-success fw-medium">
-                        <?php echo $produk['harga'] ?>
+                        <?php echo formatRupiah($produk['harga']) ?>
                     </h1>
                 </div>
                 <p class="mt-2">
@@ -72,12 +72,12 @@ $user = $_SESSION['username'];
                 while ($data = mysqli_fetch_assoc($queryProdukRandom)) {
                 ?>
                     <div class="card" style="width: 15rem;">
-                        <a href="detail.php?id=<?= $data['id'] ?>">
+                        <a href="detail.php?id=<?= $data['id_product'] ?>">
                             <img src="./upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">
                             <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
-                            <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
+                            <p class="card-text text-secondary fw-medium"><?php echo formatRupiah($data['harga']) ?></p>
                         </div>
                     </div>
                 <?php
