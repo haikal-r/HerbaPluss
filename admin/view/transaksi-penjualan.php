@@ -25,7 +25,37 @@ require('../../partials/session-admin.php');
                 <h3><i class="fa-solid fa-file-lines  me-3 ms-1"></i>Transaksi Penjualan</h3>
                 <hr>
                 <!-- main content -->
-               
+                <table class="table table-bordered align-top">
+                    <thead class="align-middle table-light">
+                        <tr>
+                            <th scope="col">NO</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Total Harga</th>
+                            <th scope="col">ID User</th>
+                            <th scope="col">ID Produk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    require '../../config/index.php';
+
+                    $query = mysqli_query($conn, "SELECT * FROM transaksi_penjualan");
+                    $no = 1;
+                    while ($data = mysqli_fetch_assoc($query)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $data['tanggal'] ?></td>
+                            <td><?php echo $data['jumlah'] ?></td>
+                            <td><?php echo formatRupiah($data['total_harga']) ?></td>
+                            <td><?php echo $data['id_user'] ?></td>
+                            <td><?php echo $data['id_product'] ?></td>
+                        </tr>
+                    </tbody>
+                    <?php
+                    }
+                    ?>
 
 
                 <!-- end content content -->
