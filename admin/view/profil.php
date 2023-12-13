@@ -47,7 +47,18 @@ $user = $_SESSION['username'];
                                 <h5 class="m-0">Profil saya</h5>
                                 <hr />
                                 <div class="d-flex justify-content-center my-3">
-                                    <img src="../../assets/img/steia.png" alt="" class="w-full h-full absolute bg-white rounded-circle" width="100" height="100">
+                                    <?php
+                                    if ($data['gambar']) {
+                                    ?>
+                                        <img src="../../upload/image/<?= $data['gambar'] ?>" alt="" class="w-full h-full  bg-white rounded-circle" width="100" height="100">
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <img src="../../assets/img/download.jpeg" alt="" class="w-full h-full bg-white rounded-circle" width="100" height="100">
+                                    <?php
+                                    }
+
+                                    ?>
                                 </div>
                                 <div class="my-2">
                                     <label for="email" class="form-label">Email</label>
@@ -72,7 +83,7 @@ $user = $_SESSION['username'];
                         <div class="d-flex flex-column py-3">
                             <h5 class="m-0">Ubah data</h5>
                             <hr />
-                            <form action="../controller/update-profil.php?id=<?= $data['id_user'] ?>" method="post" role="form">
+                            <form action="../controller/update-profil.php?id=<?= $data['id_user'] ?>" method="post" role="form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
                                         <label class="col-sm-3 control-label text-right">Email</label>
@@ -97,6 +108,15 @@ $user = $_SESSION['username'];
                                         <label class="col-sm-3 control-label text-right">password</label>
                                         <div class="col-sm-9">
                                             <input type="text" name="password" class="form-control" required>
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row mb-3 d-flex align-items-center">
+                                        <label class="col-sm-3 control-label text-right">profil</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" name="gambar" class="form-control" required>
                                             </input>
                                         </div>
                                     </div>

@@ -42,8 +42,8 @@ $user = $_SESSION['username'];
                 <div class="col-9">
                     <div id="carouselExample" class="carousel slide " data-bs-ride="carousel">
                         <div class="carousel-inner rounded-4">
-                            <div class="carousel-item active c-item ">
-                                <img src="../assets/img/carousel1.jpg" class="d-block w-100  rounded-4" alt="...">
+                            <div class="carousel-item active c-item">
+                                <img src="../assets/img/carousel1.jpg" class="d-block w-100 rounded-4" alt="...">
                             </div>
                             <div class="carousel-item c-item">
                                 <img src="../assets/img/carousel2.jpg" class="d-block w-100 c-img rounded-4" alt="...">
