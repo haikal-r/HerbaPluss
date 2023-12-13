@@ -5,3 +5,11 @@
     margin:0;
     box-sizing: border-box;
 }
+
+.tombol-hapus {
+    color: black;
+}
+
+.tombol-hapus:hover {
+    color: rgb(70, 189, 70);
+}

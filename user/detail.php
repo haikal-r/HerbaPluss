@@ -65,7 +65,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1
                     </div>
                     <div class="mt-4 d-flex gap-2">
                         <button type="submit" name="keranjang" class="btn btn-outline-success rounded-0 py-3 px-4" name="keranjang">Masukan Keranjang</button>
-                        <button type="submit" name="beli" class="btn btn-success rounded-0 py-3 px-5" name="beli">Beli Sekarang</button>
+                        <a href="simpan-keranjang.php" class="btn btn-success rounded-0 py-3 px-5" name="beli">Beli Sekarang</a>
                     </div>
                 </form>
             </div>
