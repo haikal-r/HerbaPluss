@@ -46,7 +46,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
                 <h1 class="fw-bold "><?php echo $produk['nama_barang'] ?></h1>
                 <div class="bg-body-tertiary p-4 shadow-sm">
                     <h1 class="text-success fw-medium">
-                        <?php echo $produk['harga'] ?>
+                        <?php echo formatRupiah($produk['harga']) ?>
                     </h1>
                 </div>
                 <p class="mt-2">
@@ -74,7 +74,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">
                             <h5 class="fw-bold"><?php echo $data['nama_barang'] ?></h5>
-                            <p class="card-text text-secondary fw-medium"><?php echo $data['harga'] ?></p>
+                            <p class="card-text text-secondary fw-medium"><?php echo formatRupiah($data['harga']) ?></p>
                         </div>
                     </div>
                 <?php

@@ -54,7 +54,7 @@ require('../../partials/session-admin.php');
                                 <?php echo " <img src='../../upload/image/". $data['gambar'] ."' width='100' height='100'> " ?>
                             </td>
                             <td><?php echo $data['nama_barang'] ?></td>
-                            <td><?php echo $data['harga'] ?></td>
+                            <td><?php echo formatRupiah($data['harga']) ?></td>
                             <td><?php echo $data['deskripsi'] ?></td>
                             <td><?php echo $data['stok'] ?></td>
                             <td>

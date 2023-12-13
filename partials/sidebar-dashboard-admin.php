@@ -19,7 +19,13 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-white link-hover rounded py-3" href="../../admin/view/konsumen.php">
-        <i class="fa-solid fa-users fa-lg me-3"></i>Data Konsumen
+        <i class="fa-solid fa-users fa-lg me-2"></i>Data Konsumen
+        </a>
+        <hr class="bg-secondary">
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white link-hover rounded py-3" href="../../admin/view/pesanan.php">
+        <i class="fa-solid fa-file-lines fa-xl me-3 ms-1"></i>Pesanan
         </a>
         <hr class="bg-secondary">
     </li>
