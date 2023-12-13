@@ -22,7 +22,7 @@ require('../../partials/session-admin.php');
                 <?php require "../../partials/sidebar-dashboard-admin.php" ?>
             </div>
             <div class="col-md-10 p-4">
-                <h3><i class="fa-solid fa-file-lines  me-3 ms-1"></i>Pesanan</h3>
+                <h3><i class="fa-solid fa-file-lines  me-3 ms-1"></i>Transaksi Penjualan</h3>
                 <hr>
                 <!-- main content -->
                
