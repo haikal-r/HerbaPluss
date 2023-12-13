@@ -24,11 +24,18 @@ $data = mysqli_query($conn, "SELECT * FROM user WHERE username='$username'");
             }else{
                 header("Location: ../user/");
             }
+            }else{
+                echo "
+                <script>
+                    alert('Password salah')
+                    window.location.href = '../login.php'
+                </script>
+                ";
             }
     }else{
         echo "
         <script>
-            alert('Data tidak valid')
+            alert('Username salah')
             window.location.href = '../login.php'
         </script>
         ";

@@ -24,11 +24,11 @@
                 </div>
                 <div class="py-3">
                     <h1>Username</h1>
-                    <input type="text" class="form-control" name="username" />
+                    <input type="text" class="form-control" name="username" required/>
                 </div>
                 <div class="pb-3">
                     <h1>Password</h1>
-                    <input type="password" class="form-control" name="password" />
+                    <input type="password" class="form-control" name="password" required/>
                 </div>
                 <div class="py-3">
                     <div class="d-flex justify-content-between align-items-center">
