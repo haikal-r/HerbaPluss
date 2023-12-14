@@ -8,8 +8,8 @@
 <body>
 
   <label for="myCheckbox">Check me:</label>
-  <input type="checkbox" id="myCheckbox">
-  <button onclick="getCheckboxValue()">Get Checkbox Value</button>
+  <input type="checkbox" id="myCheckbox" onclick="getCheckboxValue()">
+  <button >Get Checkbox Value</button>
 
   <script>
     function getCheckboxValue() {
@@ -20,7 +20,7 @@
       var checkboxValue = checkbox.checked;
 
       // Menampilkan nilai checkbox
-      alert("Checkbox Value: " + checkboxValue);
+        console.log("Checkbox Value: " + checkboxValue);
     }
   </script>
 

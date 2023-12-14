@@ -6,6 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $user = $_SESSION['username'];
+$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
 ?>
 
 <!DOCTYPE html>
@@ -44,61 +45,62 @@ $user = $_SESSION['username'];
                     <li class="ms-2 opacity-75 fw-medium me-5">Aksi</li>
                 </ul>
             </div>
-
-
-            <form action="simpan-keranjang.php?id=<?= $produk['id_product'] ?>&&p=<?= $produk['harga'] ?>" method="POST" class="d-flex flex-column gap-4">
-                <div class="bg-white px-4 py-2 d-flex justify-content-between w-100 align-items-center">
-                    <div class="py-4 d-flex gap-4">
-                        <input type="checkbox" aria-checked="false" aria-disabled="false" tabindex="0" role="checkbox" aria-label="Click here to select this product">
-                        <img src="../upload/image/gambar1.jpeg" alt="" width="100" height="100">
-                        <p class="mt-2">produk terbaik sepanjang masa</p>
+            <?php
+            require '../config/index.php';
+            $idUser = $_SESSION['id_user'];
+            $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_user = '$idUser'");
+            while ($data = mysqli_fetch_assoc($query)) {
+            ?>
+                <form action="update-keranjang.php?id=<?= $data['id_product'] ?>&&jumlah=<?= $data['jumlah'] ?>" method="POST" class="d-flex flex-column gap-4">
+                    <div class="bg-white px-4 py-2 d-flex justify-content-between w-100 align-items-center">
+                        <div class="py-4 d-flex gap-4">
+                            <input type="checkbox" name="checkbox<?= $data['id_product']?>" id="myCheckbox<?= $data['id_product']?>" onclick="getCheckboxValue()">
+                            <img src="../upload/image/<?= $data['gambar'] ?>" alt="" width="100" height="100">
+                            <p class="mt-2"><?= $data['nama_barang'] ?></p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-end my-auto ">
+                            <p class="mx-5 my-auto">
+                                <?= $data['harga'] ?>
+                            </p>
+                            <?php if ($data['jumlah'] < 1) {
+                            ?>
+                                <button class="px-2 py-1 btn btn-outline-secondary rounded-0" disabled>
+                                <?php
+                            } else {
+                                ?>
+                                    <button type="submit" name="kurang" class="px-2 py-1 btn btn-outline-secondary rounded-0">
+                                    <?php
+                                }
+                                    ?>
+                                    <i class="fa-solid fa-minus fa-xs py-1"></i>
+                                    </button>
+                                    <input type="text" name="hasil" value="<?= $data['jumlah'] ?>" class="text-center py-1 btn btn-outline-secondary rounded-0 border-end-0 border-start-0" style="width: 55px;" readonly>
+                                    <button type="submit" name="tambah" class="btn btn-outline-secondary py-1 rounded-0">
+                                        <i class="fa-solid fa-plus fa-xs py-1"></i>
+                                    </button>
+                                    <p class="mx-5 my-auto">
+                                        Rp. <?= $data['harga'] * $data['jumlah'] ?>
+                                    </p>
+                                    <a href="" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
+                        </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-end my-auto ">
-                        <p class="mx-5 my-auto">10101010</p>
-                        <button type="button" class="px-2 py-1 btn btn-outline-secondary rounded-0" onclick="kurang()"><i class="fa-solid fa-minus fa-xs py-1"></i></button>
-                        <input type="text" name="hasil" id="hasil" class=" text-center py-1 btn btn-outline-secondary rounded-0 border-end-0 border-start-0" value="1" style="width: 55px;" readonly>
-                        <button type="button" class=" btn btn-outline-secondary py-1 rounded-0" onclick="tambah()"><i class="fa-solid fa-plus fa-xs py-1"></i></button>
-                        <p class="mx-5 my-auto">100000</p>
-                        <a href="" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
-                    </div>
+                </form>
+            <?php
+            }
+            ?>
+            <!-- Checkout -->
+            <form action="checkout.php">
+            <div class="bg-white py-3 d-flex justify-content-end mb-0 w-100 ">
+                <div class="mx-3 d-flex gap-3">
+                    <?php 
+                    if(isset($_POST['checkbox'])){
+                        echo "berhasil";
+                    }
+                    ?>
+                    <p class="my-auto">Total(0 produk): <span class="text-danger">Rp. 0</span></p>
+                    <button type="submit" class="btn btn-primary rounded-0 px-5">Checkout</button>
                 </div>
-                <div class="bg-white px-4 py-2 d-flex justify-content-between w-100 align-items-center">
-                    <div class="py-4 d-flex gap-4">
-                        <input type="checkbox" aria-checked="false" aria-disabled="false" tabindex="0" role="checkbox" aria-label="Click here to select this product">
-                        <img src="../upload/image/gambar1.jpeg" alt="" width="100" height="100">
-                        <p class="mt-2">produk terbaik sepanjang masa</p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-end my-auto ">
-                        <p class="mx-5 my-auto">10101010</p>
-                        <button type="button" class="px-2 py-1 btn btn-outline-secondary rounded-0" onclick="kurang()"><i class="fa-solid fa-minus fa-xs py-1"></i></button>
-                        <input type="text" name="hasil" id="hasil" class=" text-center py-1 btn btn-outline-secondary rounded-0 border-end-0 border-start-0" value="1" style="width: 55px;" readonly>
-                        <button type="button" class=" btn btn-outline-secondary py-1 rounded-0" onclick="tambah()"><i class="fa-solid fa-plus fa-xs py-1"></i></button>
-                        <p class="mx-5 my-auto">100000</p>
-                        <a href="" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
-                    </div>
-                </div>
-                <div class="bg-white px-4 py-2 d-flex justify-content-between w-100 align-items-center">
-                    <div class="py-4 d-flex gap-4">
-                        <input type="checkbox" aria-checked="false" aria-disabled="false" tabindex="0" role="checkbox" aria-label="Click here to select this product">
-                        <img src="../upload/image/gambar1.jpeg" alt="" width="100" height="100">
-                        <p class="mt-2">produk terbaik sepanjang masa</p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-end my-auto ">
-                        <p class="mx-5 my-auto">10101010</p>
-                        <button type="button" class="px-2 py-1 btn btn-outline-secondary rounded-0" onclick="kurang()"><i class="fa-solid fa-minus fa-xs py-1"></i></button>
-                        <input type="text" name="hasil" id="hasil" class=" text-center py-1 btn btn-outline-secondary rounded-0 border-end-0 border-start-0" value="1" style="width: 55px;" readonly>
-                        <button type="button" class=" btn btn-outline-secondary py-1 rounded-0" onclick="tambah()"><i class="fa-solid fa-plus fa-xs py-1"></i></button>
-                        <p class="mx-5 my-auto">100000</p>
-                        <a href="" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
-                    </div>
-                </div>
-
-                <div class="bg-white py-3 d-flex justify-content-end mb-0 w-100 ">
-                    <div class="mx-3 d-flex gap-3">
-                        <p class="my-auto">Total(0 produk): <span class="text-danger">Rp. 0</span></p>
-                        <button class="btn btn-primary rounded-0 px-5">Checkout</button>
-                    </div>
-                </div>
+            </div>
             </form>
 
         </div>
@@ -110,7 +112,18 @@ $user = $_SESSION['username'];
     <?php require '../partials/footer.php' ?>
     <!-- footer end -->
 
+    <script>
+        function getCheckboxValue() {
+            // Mendapatkan elemen checkbox berdasarkan ID
+            var checkbox = document.getElementById("myCheckbox");
 
+            // Mendapatkan nilai checkbox (true jika dicentang, false jika tidak)
+            var checkboxValue = checkbox.checked;
+
+            // Menampilkan nilai checkbox
+            console.log("Checkbox Value: " + checkboxValue);
+        }
+    </script>
     <!-- BEGIN: Vendor JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

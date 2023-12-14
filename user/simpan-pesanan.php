@@ -12,7 +12,7 @@ if (isset($_POST['beli'])) {
     $idProduct = $_GET['id'];
     $query = "INSERT INTO `transaksi_penjualan` (`tanggal`,`jumlah`,`total_harga`,`id_user`, `id_product` )  VALUES ('$tanggal','$jumlah','$totalHarga','$idUser','$idProduct')";
     $result = mysqli_query($conn, $query);
-    if ($result) {
-        header('location: index.php');
-    };
+    // if ($result) {
+    //     header('location: index.php');
+    // };
 }

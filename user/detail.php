@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 
 $user = $_SESSION['username'];
 $id = $_SESSION['id_user'];
-$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1
+$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
 ?>
 
 
