@@ -28,7 +28,7 @@ require '../../config/index.php'
                 <!-- main content -->
                 <div class="d-flex justify-content-center gap-4">
                     <a href="profil.php" class="text-decoration-none">
-                        <div class="card text-bg-primary py-2" style="min-width: 18rem;">
+                        <div class="card text-bg-primary py-2" style="min-width: 15rem;">
                             <div class="card-body d-flex justify-content-start align-items-center fs-4">
                                 <i class="fas fa-user-circle fa-xl me-3"></i>Profile
                             </div>
@@ -39,7 +39,7 @@ require '../../config/index.php'
                         </div>
                     </a>
                     <a href="produk.php" class="text-decoration-none">
-                        <div class="card text-bg-warning text-white py-2" style="min-width: 18rem;">
+                        <div class="card text-bg-warning text-white py-2" style="min-width: 15rem;">
                             <div class="card-body d-flex justify-content-between align-items-center fs-4">
                                 <?php
                                 $query = mysqli_query($conn, "SELECT COUNT(*) AS total_rows
@@ -64,7 +64,7 @@ require '../../config/index.php'
                         </div>
                     </a>
                     <a href="konsumen.php" class="text-decoration-none">
-                        <div class="card text-bg-danger py-2" style="min-width: 18rem;">
+                        <div class="card text-bg-danger py-2" style="min-width: 15rem;">
                             <div class="card-body d-flex justify-content-between align-items-center fs-4">
                                 <?php
                                 $query = mysqli_query($conn, "SELECT COUNT(*) AS total_rows
@@ -87,7 +87,7 @@ require '../../config/index.php'
                         </div>
                     </a>
                     <a href="transaksi-penjualan.php" class="text-decoration-none">
-                        <div class="card text-bg-success py-2" style="min-width: 18rem;">
+                        <div class="card text-bg-success py-2" style="min-width: 15rem;">
                             <?php
                             $query = mysqli_query($conn, "SELECT COUNT(*) AS total_rows
                             FROM transaksi_penjualan;

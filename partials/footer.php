@@ -1,4 +1,4 @@
-<footer class="mt-5 py-5 bg-white">
+<footer class="py-5 bg-white">
     <div class="container-xl mx-auto my-4">
         <div class="row gap-5">
             <div class="col-5">

@@ -53,7 +53,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1
                 <p class="mt-2">
                     <?php echo $produk['deskripsi'] ?>
                 </p>
-                <form action="simpan-keranjang.php?id=<?= $produk['id_product'] ?>&&p=<?= $produk['harga'] ?>" method="POST">
+                <form action="simpan-keranjang.php?id=<?= $produk['id_product'] ?>&&nama=<?= $produk['nama_barang'] ?>&&harga=<?= $produk['harga'] ?>&&gambar=<?= $produk['gambar'] ?>" method="POST">
                     <div class="d-flex align-items-center">
                         <p class="me-3 my-auto text-black-50 fw-medium">Kuantitas</p>
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -64,8 +64,8 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1
 
                     </div>
                     <div class="mt-4 d-flex gap-2">
-                        <button type="submit" name="keranjang" class="btn btn-outline-success rounded-0 py-3 px-4" name="keranjang">Masukan Keranjang</button>
-                        <a href="simpan-keranjang.php" class="btn btn-success rounded-0 py-3 px-5" name="beli">Beli Sekarang</a>
+                        <button type="submit" class="btn btn-outline-success rounded-0 py-3 px-4" name="keranjang">Masukan Keranjang</button>
+                        <button type="submit" class="btn btn-success rounded-0 py-3 px-5" name="beli">Beli Sekarang</button>
                     </div>
                 </form>
             </div>
@@ -115,6 +115,8 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1
                 hasilElement.value = nilai;
             }
         }
+
+        
     </script>
 </body>
 

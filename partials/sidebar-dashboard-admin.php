@@ -25,7 +25,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-white link-hover rounded py-3" href="../../admin/view/transaksi-penjualan.php">
-        <i class="fa-solid fa-file-lines fa-xl me-3 ms-1"></i>Transaksi Penjualan
+        <i class="fa-solid fa-file-lines fa-xl me-3 ms-1"></i>Transaksi
         </a>
         <hr class="bg-secondary">
     </li>

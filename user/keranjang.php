@@ -23,10 +23,18 @@ $user = $_SESSION['username'];
 </head>
 
 <body class="bg-body-secondary">
+    <!-- Navbar -->
     <?php require "../partials/navbar-user.php" ?>
+    <header aria-label="breadcrumb" class="mx-5 mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Keranjang</li>
+        </ol>
+    </header>
+    <!-- Navbar end -->
     <!-- Hero section -->
-    <section class="">
-        <div class="container py-4 min-vh-100 position-relative">
+    <section>
+        <div class="container pt-2 pb-5 min-vh-100 position-relative">
             <div class="bg-white px-4 pt-3 d-flex justify-content-between mb-3">
                 <p>Produk</p>
                 <ul class="d-flex gap-5 list-unstyled">
@@ -84,7 +92,7 @@ $user = $_SESSION['username'];
                         <a href="" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
                     </div>
                 </div>
-                
+
                 <div class="bg-white py-3 d-flex justify-content-end mb-0 w-100 ">
                     <div class="mx-3 d-flex gap-3">
                         <p class="my-auto">Total(0 produk): <span class="text-danger">Rp. 0</span></p>
@@ -96,9 +104,7 @@ $user = $_SESSION['username'];
         </div>
 
     </section>
-
-
-
+    <!-- Hero Section end -->
 
     <!-- footer start -->
     <?php require '../partials/footer.php' ?>

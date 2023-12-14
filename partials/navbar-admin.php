@@ -13,13 +13,17 @@
       </form>
     </div>
     <a href="../admin/view/dashboard.php" class="text-white ms-3">
-        <i class="fa-solid fa-xl fa-shop"></i>
+        <i class="fa-solid fa-xl fa-shop "></i>
     </a>
-    <a href="../admin/view/profil.php" class="text-white navbar-hover">
-        <i class="fas fa-user-circle fa-2xl mx-4"></i>
-    </a>
-    <a href="../config/auth-logout.php" class="text-white">
-        <i class="fas fa-sign-out-alt fa-xl "></i>
-    </a>
+    <div class="dropdown-center">
+            <a class="text-white"  data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle fa-2xl mx-3"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="../admin/view/profil.php">Akun Saya</a></li>
+                <li><a class="dropdown-item" href="../admin/view/">Pesanan Saya</a></li>
+                <li><a class="dropdown-item" href="../config/auth-logout.php">Logout</a></li>
+            </ul>
+        </div>
   </div>
 </nav>
