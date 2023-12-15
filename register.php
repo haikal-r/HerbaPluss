@@ -32,13 +32,13 @@ if( isset($_POST["register"]) ) {
 <body>
     <div class="main d-flex justify-content-center align-items-center">
         <div class="login-box p-5 h-auto d-flex align-items-center" style="width: 450px;">
-            <form class="d-flex flex-column w-100" method="post">
+            <form class="d-flex flex-column w-100" method="post" >
                 <div class="text-center">
                     <img src="./assets/HerbaPluss.svg" class="pt-3 pb-4 "/>
                 </div>
                 <div class="py-3">
                     <h1>Email</h1>
-                    <input type="email" class="form-control" name="email"/>
+                    <input type="email" class="form-control" name="email" />
                 </div>
                 <div class="pb-3">
                     <h1>Alamat</h1>

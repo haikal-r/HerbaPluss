@@ -6,6 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $user = $_SESSION['username'];
+$idUser = $_SESSION['id_user'];
 $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
 ?>
 
@@ -99,12 +100,12 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
                     <div class="bg-white py-3 d-flex justify-content-end mb-0 w-100 ">
                         <div class="mx-3 d-flex gap-3">
                             <?php
-                            $queryTotal = mysqli_query($conn, "SELECT SUM(total_harga) AS total_harga FROM keranjang");
-                            $data2 = mysqli_fetch_assoc($queryTotal);
-                            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang");
-                            while ($data1 = mysqli_fetch_assoc($queryDataLength)) {
+                            $queryTotal = mysqli_query($conn, "SELECT SUM(total_harga) AS total_harga FROM keranjang WHERE id_user = '$idUser'");
+                            $data1 = mysqli_fetch_assoc($queryTotal);
+                            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang WHERE id_user = '$idUser'");
+                            while ($data2 = mysqli_fetch_assoc($queryDataLength)) {
                             ?>
-                                <p class="my-auto">Total(<?= $data1['total_rows'] ?> produk): <span class="text-danger"><?= formatRupiah($data2['total_harga']) ?></span></p>
+                                <p class="my-auto">Total(<?= $data2['total_rows'] ?> produk): <span class="text-danger"><?= formatRupiah($data1['total_harga']) ?></span></p>
                                 <button type="submit" class="btn btn-primary rounded-0 px-5">Checkout</button>
                             <?php
                             }
