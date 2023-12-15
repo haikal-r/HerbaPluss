@@ -122,21 +122,9 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
     <!-- Hero Section end -->
 
     <!-- footer start -->
-    <?php require '../partials/footer.php' ?>
+    <?php include '../partials/footer.php' ?>
     <!-- footer end -->
 
-    <script>
-        function getCheckboxValue() {
-            // Mendapatkan elemen checkbox berdasarkan ID
-            var checkbox = document.getElementById("myCheckbox");
-
-            // Mendapatkan nilai checkbox (true jika dicentang, false jika tidak)
-            var checkboxValue = checkbox.checked;
-
-            // Menampilkan nilai checkbox
-            console.log("Checkbox Value: " + checkboxValue);
-        }
-    </script>
     <!-- BEGIN: Vendor JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
