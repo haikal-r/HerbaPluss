@@ -48,6 +48,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
             </div>
             <?php
             require '../config/index.php';
+            require '../config/format-rupiah.php';
             $idUser = $_SESSION['id_user'];
             $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_user = '$idUser'");
             while ($data = mysqli_fetch_assoc($query)) {

@@ -1,3 +1,6 @@
+<?php
+$idUser = $_SESSION['id_user'];
+?>
 <nav class="navbar navbar-expand-lg bg-navigation-primary">
     <div class="container-fluid px-5">
         <a class="navbar-brand ms-3" href="../user/">
@@ -12,15 +15,32 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
-        <a href="../user/keranjang.php" class="text-white navbar-hover me-2">
-            <i class="fa-solid fa-cart-shopping fa-xl "></i>
-        </a>
-        <a href="../user/profil.php" class="text-white navbar-hover">
-            
+            <?php
+            require '../config/index.php';
+            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang WHERE id_user = '$idUser'");
+            $data = mysqli_fetch_assoc($queryDataLength);
+            if ($data && $data['total_rows'] > 0) {
+            ?>
+                 <a href="../user/keranjang.php" class="text-white navbar-hover me-2 position-relative">
+                    <i class="fa-solid fa-cart-shopping fa-xl "></i>  
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <?= $data['total_rows'] ?>
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </a>
+            <?php
+            } else{
+            ?>
+               <a href="../user/keranjang.php" class="text-white navbar-hover me-2 position-relative">
+                    <i class="fa-solid fa-cart-shopping fa-xl "></i>  
+                </a>
+            <?php
+            }
+            ?>
         </a>
         <div class="dropdown-center">
-            <a class="text-white"  data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user-circle fa-2xl mx-3"></i>
+            <a class="text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-circle fa-2xl mx-3"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="../user/profil.php">Akun Saya</a></li>

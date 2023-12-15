@@ -1,6 +1,7 @@
 <?php
 session_start();
 require '../config/index.php';
+require '../config/format-rupiah.php';
 if (!isset($_SESSION['username'])) {
     header('location: ../login.php ');
     exit;

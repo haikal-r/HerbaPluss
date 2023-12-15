@@ -36,7 +36,9 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
     <!-- Navbar end -->
     <!-- Hero section -->
     <section>
-        <div class="container min-vh-100"></div>
+        <div class="container min-vh-100">
+            
+        </div>
     </section>
     <!-- Hero Section end -->
 
