@@ -31,11 +31,10 @@ $user = $_SESSION['username'];
                     <div class="py-3">
                         <h3 class="text-center"><i class="fa-solid fa-grip me-2"></i>Kategori</h3>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item">And a fifth one</li>
+                            <li class="list-group-item">Makanan</li>
+                            <li class="list-group-item">Minuman</li>
+                            <li class="list-group-item">Obat-obatan</li>
+                            <li class="list-group-item">Kosmetik</li>
                         </ul>
                     </div>
                 </div>

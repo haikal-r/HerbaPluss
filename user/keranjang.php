@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $user = $_SESSION['username'];
-$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
+$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
 ?>
 
 <!DOCTYPE html>
@@ -50,17 +50,18 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
             $idUser = $_SESSION['id_user'];
             $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_user = '$idUser'");
             while ($data = mysqli_fetch_assoc($query)) {
+                $dataGlobal = $data['harga'];;
             ?>
-                <form action="update-keranjang.php?id=<?= $data['id_product'] ?>&&jumlah=<?= $data['jumlah'] ?>" method="POST" class="d-flex flex-column gap-4">
-                    <div class="bg-white px-4 py-2 d-flex justify-content-between w-100 align-items-center">
+                <form action="update-keranjang.php?id=<?= $data['id_product'] ?>&&jumlah=<?= $data['jumlah'] ?>&&harga=<?= $data['harga'] ?>?" method="POST" class="d-flex flex-column gap-4">
+                    <div class="bg-white px-4 py-2 d-flex mb-3 justify-content-between w-100 align-items-center shadow-sm">
                         <div class="py-4 d-flex gap-4">
-                            <input type="checkbox" name="checkbox<?= $data['id_product']?>" id="myCheckbox<?= $data['id_product']?>" onclick="getCheckboxValue()">
+                            <input type="checkbox" name="products[]" value="<?= $data['id_product'] ?>">
                             <img src="../upload/image/<?= $data['gambar'] ?>" alt="" width="100" height="100">
                             <p class="mt-2"><?= $data['nama_barang'] ?></p>
                         </div>
                         <div class="d-flex align-items-center justify-content-end my-auto ">
                             <p class="mx-5 my-auto">
-                                <?= $data['harga'] ?>
+                                <?= formatRupiah($data['harga']) ?>
                             </p>
                             <?php if ($data['jumlah'] < 1) {
                             ?>
@@ -79,31 +80,42 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
                                         <i class="fa-solid fa-plus fa-xs py-1"></i>
                                     </button>
                                     <p class="mx-5 my-auto">
-                                        Rp. <?= $data['harga'] * $data['jumlah'] ?>
+                                        <?php
+                                        $totalHarga = $data['harga'] * $data['jumlah'];
+                                        $GLOBALS['totalHarga'];
+                                        echo formatRupiah($totalHarga);
+                                        ?>
                                     </p>
-                                    <a href="" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
+                                    <a href="hapus-keranjang.php?id=<?= $data['id_keranjang'] ?>" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
+                        </div>
+                    </div>
+                    </form>
+                <?php
+            }
+                ?>
+
+                <!-- Checkout -->
+                <form action="checkout.php?id=">
+                    <div class="bg-white py-3 d-flex justify-content-end mb-0 w-100 ">
+                        <div class="mx-3 d-flex gap-3">
+                            <?php
+                            $queryTotal = mysqli_query($conn, "SELECT SUM(total_harga) AS total_harga FROM keranjang");
+                            $data2 = mysqli_fetch_assoc($queryTotal);
+                            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang");
+                            while ($data1 = mysqli_fetch_assoc($queryDataLength)) {
+                            ?>
+                                <p class="my-auto">Total(<?= $data1['total_rows'] ?> produk): <span class="text-danger"><?= formatRupiah($data2['total_harga']) ?></span></p>
+                                <button type="submit" class="btn btn-primary rounded-0 px-5">Checkout</button>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </form>
-            <?php
-            }
-            ?>
-            <!-- Checkout -->
-            <form action="checkout.php">
-            <div class="bg-white py-3 d-flex justify-content-end mb-0 w-100 ">
-                <div class="mx-3 d-flex gap-3">
-                    <?php 
-                    if(isset($_POST['checkbox'])){
-                        echo "berhasil";
-                    }
-                    ?>
-                    <p class="my-auto">Total(0 produk): <span class="text-danger">Rp. 0</span></p>
-                    <button type="submit" class="btn btn-primary rounded-0 px-5">Checkout</button>
-                </div>
-            </div>
-            </form>
+
 
         </div>
+
 
     </section>
     <!-- Hero Section end -->
