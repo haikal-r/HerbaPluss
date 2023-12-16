@@ -1,6 +1,7 @@
 <?php
 session_start();
 require '../config/index.php';
+require '../config/format-rupiah.php';
 if (!isset($_SESSION['username'])) {
     header('location: ../login.php ');
     exit;
@@ -27,7 +28,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
 
 <body class="bg-body-secondary">
     <!-- navbar -->
-    <?php require '../partials/navbar-admin.php'; ?>
+    <?php include '../partials/navbar-admin.php'; ?>
     <!-- navbar end -->
 
     <!-- detail section -->
@@ -84,6 +85,9 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
         </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

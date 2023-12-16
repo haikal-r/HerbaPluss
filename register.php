@@ -11,7 +11,6 @@ if( isset($_POST["register"]) ) {
 	} else {
 		echo mysqli_error($conn);
 	}
-
 }
 
 ?>
