@@ -1,14 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header('location: ./login.php ');
-    exit;
-}
-
-$user = $_SESSION['username'];
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +22,7 @@ $user = $_SESSION['username'];
         <div class="container bg-white d-flex my-4 p-3">
             <?php
             require './config/index.php';
+            require './config/format-rupiah.php';
 
             $id = $_GET['id'];
             $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
@@ -51,9 +41,30 @@ $user = $_SESSION['username'];
                 <p class="mt-2">
                     <?php echo $produk['deskripsi'] ?>
                 </p>
-                <div class="mt-4 d-flex gap-2">
-                    <button type="button" name="keranjang" class="btn btn-outline-success rounded-0 py-3 px-4">Masukan Keranjang</button>
-                    <button type="button" name="beli" class="btn btn-success rounded-0 py-3 px-5">Beli Sekarang</button>
+                <div class="mt-4 d-flex flex-column gap-2">
+                    <form action="" method="POST" class="d-flex gap-2">
+                        <button type="submit" name="keranjang" class="btn btn-outline-success rounded-0 py-3 px-4">Masukan Keranjang</button>
+                        <button type="submit" name="beli" class="btn btn-success rounded-0 py-3 px-5">Beli Sekarang</button>
+                    </form>
+                    <?php
+                    // Menangani pengiriman formulir
+
+                    if (isset($_POST["keranjang"])) {
+                        // Logika untuk tombol "Masukan Keranjang"
+                    ?>
+                        <div class="alert alert-warning" role="alert">
+                            Silahkan Login/Registrasi Terlebih dahulu !!
+                        </div>
+                    <?php
+                    } elseif (isset($_POST["beli"])) {
+                        ?>
+                        <div class="alert alert-warning" role="alert">
+                            Silahkan Login/Registrasi Terlebih dahulu !!
+                        </div>
+                    <?php
+                    }
+
+                    ?>
                 </div>
             </div>
         </div>

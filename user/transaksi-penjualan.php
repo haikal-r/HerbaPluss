@@ -25,7 +25,7 @@ $id = $_SESSION['id_user'];
                 <?php require "../partials/sidebar-dashboard-user.php" ?>
             </div>
             <div class="col-md-10 p-4">
-                <h3><i class="fa-solid fa-file-lines  me-3 ms-1"></i>Transaksi Penjualan</h3>
+                <h3><i class="fa-solid fa-file-lines  me-3 ms-1"></i>Pesanan Saya</h3>
                 <hr>
                 <!-- main content -->
                 <table class="table table-bordered align-top">
