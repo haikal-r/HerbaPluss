@@ -13,10 +13,10 @@ $query = "INSERT INTO `transaksi_penjualan` (`tanggal`,`jumlah`,`total_harga`,`i
 $result = mysqli_query($conn, $query);
 if ($result) {
     $deleteKeranjang = mysqli_query($conn, "DELETE FROM keranjang WHERE id_keranjang='$idKeranjang'");
-    // echo "
-    //     <script>
-    //         alert('Pesanan telah dibuat')
-    //         window.location.href = 'index.php'
-    //     </script>
-    //     ";
+    echo "
+        <script>
+            alert('Pesanan telah dibuat')
+            window.location.href = 'index.php'
+        </script>
+        ";
 };

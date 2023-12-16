@@ -7,6 +7,8 @@ if (!isset($_SESSION['username'])) {
 
 $user = $_SESSION['username'];
 $idUser = $_SESSION['id_user'];
+$alamat = $_SESSION['alamat'];
+$nomor_telepon = $_SESSION['nomor_telepon'];
 $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
 ?>
 
@@ -44,9 +46,9 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
                     <div class="d-flex gap-5 border-bottom">
                         <div class="w-25">
                             <h6><?= $user ?> <span>(+62)</span></h6>
-                            <h6>9323423759845</h6>
+                            <h6><?= $nomor_telepon ?></h6>
                         </div>
-                        <p>Perumahan villa hanglekir, blok dd1 no.13, RT.4/RW.5, Legenda malaka, Batam kota (Sebela warungsuroboy), KOTA BATAM - BATAM KOTA, KEPULAUAN RIAU, ID 29413</p>
+                        <p><?= $alamat ?></p>
                     </div>
                 </div>
             </div>

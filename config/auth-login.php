@@ -15,6 +15,8 @@ if (mysqli_num_rows($data) > 0) {
         // set session
         $_SESSION['id_user'] = $row['id_user'];
         $_SESSION['username'] = $row['username'];
+        $_SESSION['alamat'] = $row['alamat'];
+        $_SESSION['nomor_telepon'] = $row['nomor_telepon'];
         $_SESSION["role"] = $row['role'];
         $_SESSION["login"] = true;
 
