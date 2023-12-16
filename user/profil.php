@@ -5,6 +5,7 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
+$id = $_SESSION['id_user'];
 $user = $_SESSION['username'];
 
 
@@ -38,9 +39,8 @@ $user = $_SESSION['username'];
                         <div class="d-flex flex-column py-3">
                             <?php
                             require '../config/index.php';
-                            $query = mysqli_query($conn, "SELECT * FROM user");
+                            $query = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '$id'");
                             $data = mysqli_fetch_assoc($query);
-                            $id = $data['id_user'];
                             $query1 = mysqli_query($conn, "SELECT * FROM user WHERE id_user='$id'");
                             while ($data = mysqli_fetch_assoc($query1)) {
                             ?>
@@ -73,6 +73,10 @@ $user = $_SESSION['username'];
                                     <input type="text" class="form-control " name="alamat" placeholder="<?php echo $data['alamat'] ?>" readonly />
                                 </div>
                                 <div class="my-2">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <input type="text" class="form-control " name="alamat" placeholder="<?php echo $data['nomor_telepon'] ?>" readonly />
+                                </div>
+                                <div class="my-2">
                                     <label for="password" class="form-label">Password</label>
                                     <input type="password" class="form-control " name="password" placeholder="******" readonly />
                                 </div>
@@ -83,7 +87,7 @@ $user = $_SESSION['username'];
                         <div class="d-flex flex-column py-3">
                             <h5 class="m-0">Ubah data</h5>
                             <hr />
-                            <form action="../controller/update-profil.php?id=<?= $data['id_user'] ?>" method="post" role="form" enctype="multipart/form-data">
+                            <form action="./update-profil.php?id=<?= $data['id_user'] ?>" method="post" role="form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
                                         <label class="col-sm-3 control-label text-right">Email</label>
@@ -100,6 +104,13 @@ $user = $_SESSION['username'];
                                     <div class="row mb-3 d-flex align-items-center">
                                         <label class="col-sm-3 control-label text-right">Alamat</label>
                                         <div class="col-sm-9"><input type="text" class="form-control" name="alamat" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row mb-3 d-flex align-items-center">
+                                        <label class="col-sm-3 control-label text-right">Nomor Telepon</label>
+                                        <div class="col-sm-9"><input type="text" class="form-control" name="nomor" required>
                                         </div>
                                     </div>
                                 </div>
