@@ -76,6 +76,7 @@ $user = $_SESSION['username'];
             <div class="d-flex gap-3 justify-content-center">
                 <?php
                 include '../config/index.php';
+                include '../config/format-rupiah.php';
 
                 $query = mysqli_query($conn, "SELECT * FROM product ORDER BY RAND() LIMIT 5");
                 while ($data = mysqli_fetch_assoc($query)) {

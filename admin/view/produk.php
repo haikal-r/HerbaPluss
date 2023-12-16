@@ -43,6 +43,7 @@ require('../../partials/session-admin.php');
                     <tbody>
                     <?php
                     require '../../config/index.php';
+                    require '../../config/format-rupiah.php';
 
                     $query = mysqli_query($conn, "SELECT * FROM product");
                     $no = 1;
