@@ -7,11 +7,12 @@ $idUser = $_SESSION['id_user'];
 $nama = $_GET['nama'];
 $harga = $_GET['harga'];
 $gambar = $_GET['gambar'];
+
 $jumlah = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
 $totalHarga = $harga * $jumlah;
 
-$query = "INSERT INTO `keranjang` (`jumlah`,`nama_barang`,`harga`,`total_harga`,`gambar`,`id_user`, `id_product` )  
-            VALUES ('$jumlah','$nama','$harga','$totalHarga','$gambar','$idUser','$idProduk')";
+$query = "INSERT INTO `keranjang` (`jumlah`,`nama_barang`,`harga`,`total_harga`,`gambar`,`type`,`id_user`, `id_product` )  
+            VALUES ('$jumlah','$nama','$harga','$totalHarga','$gambar','true','$idUser','$idProduk')";
 $result = mysqli_query($conn, $query);
 
 if (isset($_POST['beli'])) {
