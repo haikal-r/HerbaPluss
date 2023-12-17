@@ -1,5 +1,5 @@
 <?php
-require('../../partials/session-admin.php');
+require('../partials/session-admin.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,18 +8,18 @@ require('../../partials/session-admin.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Document</title>
 </head>
 
 <body>
-    <?php require "../../partials/navbar-dashboard-admin.php" ?>
+    <?php require "../partials/navbar-dashboard-admin.php" ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 bg-navigation-primary pr-3 pt-4">
-                <?php require "../../partials/sidebar-dashboard-admin.php" ?>
+                <?php require "../partials/sidebar-dashboard-admin.php" ?>
             </div>
             <div class="col-md-10 p-4">
                 <h3><i class="fa-solid fa-users fa me-3"></i>Data Kosumen</h3>
@@ -38,9 +38,9 @@ require('../../partials/session-admin.php');
                         </thead>
                         <tbody>
                             <?php
-                            require '../../config/index.php';
+                            require '../config/index.php';
 
-                            $query = mysqli_query($conn, "SELECT * FROM user WHERE role = 'pembeli'");
+                            $query = mysqli_query($conn, "SELECT * FROM pengguna WHERE role = 'pembeli'");
                             $no = 1;
                             while ($data = mysqli_fetch_assoc($query)) {
                             ?>
@@ -50,27 +50,23 @@ require('../../partials/session-admin.php');
                                         <?php
                                         if ($data['gambar']) {
                                         ?>
-                                            <img src="../../upload/image/<?= $data['gambar'] ?>" alt="" class="w-full h-full  bg-white rounded-circle" width="100" height="100">
+                                            <img src="../upload/image/<?= $data['gambar'] ?>" alt="" class="w-full h-full  bg-white rounded-circle" width="100" height="100">
                                         <?php
                                         } else {
                                         ?>
-                                            <img src="../../assets/img/profile-place-holder.jpg" alt="" class="w-full h-full bg-white rounded-circle" width="100" height="100">
+                                            <img src="../assets/img/profile-place-holder.jpg" alt="" class="w-full h-full bg-white rounded-circle" width="100" height="100">
                                         <?php
                                         }
                                         ?>
                                     </td>
                                     <td><?php echo $data['email'] ?></td>
-                                    <td><?php echo $data['username'] ?></td>
+                                    <td><?php echo $data['nama'] ?></td>
                                     <td><?php echo $data['alamat'] ?></td>
                                 </tr>
                         </tbody>
                     <?php
                             }
                     ?>
-
-
-
-
                     <!-- end content content -->
                 </div>
             </div>

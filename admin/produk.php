@@ -1,5 +1,5 @@
 <?php
-require('../../partials/session-admin.php');
+require('../partials/session-admin.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,18 +8,18 @@ require('../../partials/session-admin.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../vendor/fontawesome/fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Document</title>
 </head>
 
 <body>
-    <?php require "../../partials/navbar-dashboard-admin.php" ?>
+    <?php include "../partials/navbar-dashboard-admin.php" ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 bg-navigation-primary pr-3 pt-4">
-                <?php require "../../partials/sidebar-dashboard-admin.php" ?>
+                <?php include "../partials/sidebar-dashboard-admin.php" ?>
             </div>
             <div class="col-md-10 p-4">
                 <!-- main content -->
@@ -42,25 +42,25 @@ require('../../partials/session-admin.php');
                     </thead>
                     <tbody>
                     <?php
-                    require '../../config/index.php';
-                    require '../../config/format-rupiah.php';
+                    require '../config/index.php';
+                    require '../config/format-rupiah.php';
 
-                    $query = mysqli_query($conn, "SELECT * FROM product");
+                    $query = mysqli_query($conn, "SELECT * FROM barang");
                     $no = 1;
                     while ($data = mysqli_fetch_assoc($query)) {
                     ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td class="text-center">
-                                <?php echo " <img src='../../upload/image/". $data['gambar'] ."' width='100' height='100'> " ?>
+                                <?php echo " <img src='../upload/image/". $data['gambar'] ."' width='100' height='100'> " ?>
                             </td>
                             <td><?php echo $data['nama_barang'] ?></td>
                             <td><?php echo formatRupiah($data['harga']) ?></td>
                             <td><?php echo $data['deskripsi'] ?></td>
                             <td><?php echo $data['stok'] ?></td>
                             <td>
-                                <a href="../controller/ubah-produk.php?id=<?= $data["id_product"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id_product']; ?>">Edit</a>
-                                <a href="../controller/hapus-produk.php?id=<?= $data["id_product"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id_product']; ?>">Delete</a>
+                                <a href="../controller/ubah-produk.php?id=<?= $data["id_barang"] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahproduk<?php echo $data['id_barang']; ?>">Edit</a>
+                                <a href="../controller/hapus-produk.php?id=<?= $data["id_barang"] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusproduk<?php echo $data['id_barang']; ?>">Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -114,17 +114,17 @@ require('../../partials/session-admin.php');
 
                         <!-- START MODAL UBAH -->
                         <div class="example-modal">
-                            <div class="modal fade" id="ubahproduk<?php echo $data['id_product']; ?>" role="dialog">
+                            <div class="modal fade" id="ubahproduk<?php echo $data['id_barang']; ?>" role="dialog">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h3 class="modal-title">Edit Data Produk</h3>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="../controller/update-produk.php?id=<?= $data['id_product'] ?>" method="post" role="form">
+                                            <form action="../controller/update-produk.php?id=<?= $data['id_barang'] ?>" method="post" role="form">
                                                 <?php
-                                                $id = $data['id_product'];
-                                                $query1 = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
+                                                $id = $data['id_barang'];
+                                                $query1 = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id'");
                                                 while ($data1 = mysqli_fetch_assoc($query1)) {
                                                 ?>
                                                     <div class="form-group">
@@ -173,7 +173,7 @@ require('../../partials/session-admin.php');
 
                         <!-- START MODAL HAPUS -->
                         <div class="example-modal">
-                            <div id="hapusproduk<?php echo $data['id_product']; ?>" class="modal fade" role="dialog" style="display:none;">
+                            <div id="hapusproduk<?php echo $data['id_barang']; ?>" class="modal fade" role="dialog" style="display:none;">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -186,7 +186,7 @@ require('../../partials/session-admin.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button id="nodelete" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancle</button>
-                                            <a href="../controller/hapus-produk.php?id=<?php echo $data['id_product']; ?>" class="btn btn-primary">Delete</a>
+                                            <a href="../controller/hapus-produk.php?id=<?php echo $data['id_barang']; ?>" class="btn btn-primary">Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@ require('../../partials/session-admin.php');
     <!-- BEGIN: Vendor JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 
