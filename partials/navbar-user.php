@@ -17,7 +17,7 @@ $idUser = $_SESSION['id_user'];
         </div>
             <?php
             require '../config/index.php';
-            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang WHERE id_user = '$idUser'");
+            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang WHERE id_pengguna = '$idUser'");
             $data = mysqli_fetch_assoc($queryDataLength);
             if ($data && $data['total_rows'] > 0) {
             ?>

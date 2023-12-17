@@ -1,5 +1,5 @@
 <?php
-require '../config/index.php';
+require '../../config/index.php';
 
 session_start();
 
@@ -16,7 +16,7 @@ if ($result) {
     echo "
         <script>
             alert('Pesanan telah dibuat')
-            window.location.href = 'index.php'
+            window.location.href = '../index.php'
         </script>
         ";
 };

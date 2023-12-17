@@ -1,5 +1,5 @@
 <?php
-require '../config/index.php';
+require '../../config/index.php';
 session_start();
 
 $idProduk = $_GET['id'];
@@ -11,22 +11,20 @@ $gambar = $_GET['gambar'];
 $jumlah = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
 $totalHarga = $harga * $jumlah;
 
-$query = "INSERT INTO `keranjang` (`jumlah`,`nama_barang`,`harga`,`total_harga`,`gambar`,`type`,`id_user`, `id_product` )  
+$query = "INSERT INTO `keranjang` (`jumlah`,`nama_barang`,`harga`,`total_harga`,`gambar`,`type`,`id_pengguna`, `id_barang` )  
             VALUES ('$jumlah','$nama','$harga','$totalHarga','$gambar','true','$idUser','$idProduk')";
 $result = mysqli_query($conn, $query);
 
 if (isset($_POST['beli'])) {
-    header('location: keranjang.php');
+    header('location: ../keranjang.php');
     // jika klik tombol keranjang 
-    if (isset($_POST['keranjang'])) {
-        ?>
-            <script>
-                alert('berhasil')
-                window.location.href = './detail.php?id=<?= $_GET['id'] ?>';
-            </script>
-        <?php
-        }
-}
-
-
+   
+}elseif (isset($_POST['keranjang'])) {
+    ?>
+    <script>
+        alert('Berhasil')
+        window.location.href = '../detail.php?id=<?= $idProduk ?>'
+    </script>
+    <?php
+    }
 ?>

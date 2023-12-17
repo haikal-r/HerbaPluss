@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 $user = $_SESSION['username'];
 $id = $_SESSION['id_user'];
-$hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
+
 ?>
 
 
@@ -39,6 +39,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
 
             $id = $_GET['id'];
             $queryProduk = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id'");
+            $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
             $produk = mysqli_fetch_array($queryProduk);
             ?>
             <div class="bg-body-tertiary  p-2 d-flex justify-content-center align-items-center me-4">
@@ -54,7 +55,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
                 <p class="mt-2">
                     <?php echo $produk['deskripsi'] ?>
                 </p>
-                <form action="simpan-keranjang.php?id=<?= $produk['id_barang'] ?>&&nama=<?= $produk['nama_barang'] ?>&&harga=<?= $produk['harga'] ?>&&gambar=<?= $produk['gambar'] ?>" method="POST">
+                <form action="./controller/simpan-keranjang.php?id=<?= $produk['id_barang'] ?>&&nama=<?= $produk['nama_barang'] ?>&&harga=<?= $produk['harga'] ?>&&gambar=<?= $produk['gambar'] ?>" method="POST">
                     <div class="d-flex align-items-center">
                         <p class="me-3 my-auto text-black-50 fw-medium">Kuantitas</p>
                         <div class="btn-group" role="group" aria-label="Basic outlined example">

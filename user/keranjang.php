@@ -50,10 +50,10 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
             require '../config/index.php';
             require '../config/format-rupiah.php';
             $idUser = $_SESSION['id_user'];
-            $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_user = '$idUser'");
+            $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_pengguna = '$idUser'");
             while ($data = mysqli_fetch_assoc($query)) {
             ?>
-                <form action="update-keranjang.php?id=<?= $data['id_product'] ?>&&jumlah=<?= $data['jumlah'] ?>&&harga=<?= $data['harga'] ?>?" method="POST" class="d-flex flex-column gap-4">
+                <form action="./controller/update-keranjang.php?id=<?= $data['id_barang'] ?>&&jumlah=<?= $data['jumlah'] ?>&&harga=<?= $data['harga'] ?>" method="POST" class="d-flex flex-column gap-4">
                     <div class="bg-white position-relative px-4 py-2 d-flex mb-3 justify-content-between w-100 align-items-center shadow-sm">
                         <div class="py-4 d-flex gap-4">
                             <?php
@@ -96,7 +96,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
                                         echo formatRupiah($totalHarga);
                                         ?>
                                     </p>
-                                    <a href="hapus-keranjang.php?id=<?= $data['id_keranjang'] ?>" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
+                                    <a href="./controller/hapus-keranjang.php?id=<?= $data['id_keranjang'] ?>" class="ms-3 me-5 my-auto text-decoration-none tombol-hapus">Hapus</a>
                         </div>
                     </div>
                 </form>
@@ -106,10 +106,10 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
 
             <!-- Checkout -->
             <?php
-            $queryTotal = mysqli_query($conn, "SELECT SUM(total_harga) AS total_harga FROM keranjang WHERE id_user = '$idUser'");
+            $queryTotal = mysqli_query($conn, "SELECT SUM(total_harga) AS total_harga FROM keranjang WHERE id_pengguna = '$idUser'");
             $data1 = mysqli_fetch_assoc($queryTotal);
-            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang WHERE id_user = '$idUser' AND type = 'true'");
-            $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_user = '$idUser'");
+            $queryDataLength = mysqli_query($conn, "SELECT COUNT(*) AS total_rows FROM keranjang WHERE id_pengguna = '$idUser' AND type = 'true'");
+            $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_pengguna = '$idUser'");
             $data = mysqli_fetch_assoc($query);
             while ($data2 = mysqli_fetch_assoc($queryDataLength)) {
             ?>
