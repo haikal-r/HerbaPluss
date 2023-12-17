@@ -37,23 +37,23 @@ if( isset($_POST["register"]) ) {
                 </div>
                 <div class="py-3">
                     <h1>Email</h1>
-                    <input type="email" class="form-control" name="email" />
+                    <input type="email" class="form-control" name="email" required/>
                 </div>
                 <div class="pb-3">
                     <h1>Alamat</h1>
-                    <input type="text" class="form-control" name="alamat"/>
+                    <input type="text" class="form-control" name="alamat" required/>
                 </div>
                 <div class="pb-3">
                     <h1>Username</h1>
-                    <input type="text" class="form-control" name="username" />
+                    <input type="text" class="form-control" name="username" required/>
                 </div>
                 <div class="pb-3">
                     <h1>Password</h1>
-                    <input type="password" class="form-control" name="password" />
+                    <input type="password" class="form-control" name="password" required/>
                 </div>
                 <div class="pb-3">
                     <h1>Role</h1>
-                    <select name="role" class="form-select" id="inputGroupSelect01">
+                    <select name="role" class="form-select" id="inputGroupSelect01" required>
                         <option selected>Choose...</option>
                         <option value="pembeli">Pembeli</option>
                         <option value="penjual">Penjual</option>    

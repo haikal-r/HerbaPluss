@@ -39,9 +39,9 @@ $user = $_SESSION['username'];
                         <div class="d-flex flex-column py-3">
                             <?php
                             require '../config/index.php';
-                            $query = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '$id'");
+                            $query = mysqli_query($conn, "SELECT * FROM pengguna WHERE id_pengguna = '$id'");
                             $data = mysqli_fetch_assoc($query);
-                            $query1 = mysqli_query($conn, "SELECT * FROM user WHERE id_user='$id'");
+                            $query1 = mysqli_query($conn, "SELECT * FROM pengguna WHERE id_pengguna='$id'");
                             while ($data = mysqli_fetch_assoc($query1)) {
                             ?>
                                 <h5 class="m-0">Profil saya</h5>
@@ -66,7 +66,7 @@ $user = $_SESSION['username'];
                                 </div>
                                 <div class="my-2">
                                     <label for="username" class="form-label">Username </label>
-                                    <input type="text" class="form-control " name="Username" placeholder="<?php echo $data['username'] ?>" readonly />
+                                    <input type="text" class="form-control " name="Username" placeholder="<?php echo $data['nama'] ?>" readonly />
                                 </div>
                                 <div class="my-2">
                                     <label for="alamat" class="form-label">Alamat</label>
@@ -87,7 +87,7 @@ $user = $_SESSION['username'];
                         <div class="d-flex flex-column py-3">
                             <h5 class="m-0">Ubah data</h5>
                             <hr />
-                            <form action="./update-profil.php?id=<?= $data['id_user'] ?>" method="post" role="form" enctype="multipart/form-data">
+                            <form action="./update-profil.php?id=<?= $data['id_pengguna'] ?>" method="post" role="form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
                                         <label class="col-sm-3 control-label text-right">Email</label>

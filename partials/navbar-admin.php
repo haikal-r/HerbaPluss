@@ -21,7 +21,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="../admin/view/profil.php">Akun Saya</a></li>
-                <li><a class="dropdown-item" href="../admin/view/produk.php">Produk Saya</a></li>
+                <li><a class="dropdown-item" href="../admin/view/produk.php ">Produk Saya</a></li>
                 <li><a class="dropdown-item" href="../config/auth-logout.php">Logout</a></li>
             </ul>
         </div>

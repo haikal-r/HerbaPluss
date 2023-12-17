@@ -11,7 +11,7 @@ function registrasi($data) {
     $role = $_POST['role'];
 
 	// cek email sudah ada atau belum
-	$result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email'");
+	$result = mysqli_query($conn, "SELECT email FROM pengguna WHERE email = '$email'");
 
 	if(mysqli_fetch_assoc($result)) {
 		echo "<script>
@@ -23,7 +23,7 @@ function registrasi($data) {
 	// enkripsi password
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
-	$query = "INSERT INTO `user`(`role`, `username`, `email`, `password`, `alamat`) VALUES ('$role', '$username', '$email', '$password', '$alamat')";
+	$query = "INSERT INTO `pengguna`(`role`, `nama`, `email`, `password`, `alamat`) VALUES ('$role', '$username', '$email', '$password', '$alamat')";
 	mysqli_query($conn, $query);
 
 	return mysqli_affected_rows($conn);
