@@ -67,7 +67,7 @@ $user = $_SESSION['username'];
 
     </section>
 
-    <!-- Katalog product -->
+    <!-- Katalog barang -->
     <section>
         <div class="container d-flex flex-column bg-white pb-4 pt-3 my-3 shadow-sm">
             <div class="bg-white p-1 mb-1 ">
@@ -78,11 +78,11 @@ $user = $_SESSION['username'];
                 include '../config/index.php';
                 include '../config/format-rupiah.php';
 
-                $query = mysqli_query($conn, "SELECT * FROM product ORDER BY RAND() LIMIT 5");
+                $query = mysqli_query($conn, "SELECT * FROM barang ORDER BY RAND() LIMIT 5");
                 while ($data = mysqli_fetch_assoc($query)) {
                 ?>
                     <div class="card" style="width: 15rem;">
-                        <a href="detail.php?id=<?= $data['id_product'] ?>">
+                        <a href="detail.php?id=<?= $data['id_barang'] ?>">
                             <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">
@@ -97,7 +97,7 @@ $user = $_SESSION['username'];
         </div>
     </section>
 
-    <!-- List Product -->
+    <!-- List barang -->
     <section>
         <div class="container-xxl py-3">
             <div class="row">
@@ -109,11 +109,11 @@ $user = $_SESSION['username'];
                         </div>
                         <div class="d-flex flex-wrap gap-3 justify-content-start px-3 pb-4">
                             <?php
-                            $query = mysqli_query($conn, "SELECT * FROM product");
+                            $query = mysqli_query($conn, "SELECT * FROM barang");
                             while ($data = mysqli_fetch_assoc($query)) {
                             ?>
                                 <div class="card" style="width: 15rem;">
-                                    <a href="detail.php?id=<?= $data['id_product'] ?>">
+                                    <a href="detail.php?id=<?= $data['id_barang'] ?>">
                                         <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                                     </a>
                                     <div class="card-body d-flex flex-column justify-content-end">

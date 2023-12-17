@@ -37,7 +37,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
             <?php
 
             $id = $_GET['id'];
-            $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
+            $queryProduk = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id'");
             $produk = mysqli_fetch_array($queryProduk);
             ?>
             <div class="bg-body-tertiary p-2 d-flex justify-content-center align-items-center me-4">
@@ -57,7 +57,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
         </div>
     </section>
 
-    <!-- rekomendasi product -->
+    <!-- rekomendasi barang -->
     <section>
         <div class="container bg-white p-2">
             <div class="d-flex justify-content-between align-items-center bg-white py-2 px-3 mb-2 border-bottom border-5 border-success">
@@ -65,12 +65,12 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 2
             </div>
             <div class="d-flex gap-3 justify-content-center">
                 <?php
-                // randomize product
-                $queryProdukRandom = mysqli_query($conn, "SELECT * FROM product ORDER BY RAND() LIMIT 5");
+                // randomize barang
+                $queryProdukRandom = mysqli_query($conn, "SELECT * FROM barang ORDER BY RAND() LIMIT 5");
                 while ($data = mysqli_fetch_assoc($queryProdukRandom)) {
                 ?>
                     <div class="card" style="width: 15rem;">
-                        <a href="detail.php?id=<?= $data['id_product'] ?>">
+                        <a href="detail.php?id=<?= $data['id_barang'] ?>">
                             <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">

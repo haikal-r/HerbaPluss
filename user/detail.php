@@ -38,7 +38,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
             <?php
 
             $id = $_GET['id'];
-            $queryProduk = mysqli_query($conn, "SELECT * FROM product WHERE id_product='$id'");
+            $queryProduk = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id'");
             $produk = mysqli_fetch_array($queryProduk);
             ?>
             <div class="bg-body-tertiary  p-2 d-flex justify-content-center align-items-center me-4">
@@ -54,7 +54,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
                 <p class="mt-2">
                     <?php echo $produk['deskripsi'] ?>
                 </p>
-                <form action="simpan-keranjang.php?id=<?= $produk['id_product'] ?>&&nama=<?= $produk['nama_barang'] ?>&&harga=<?= $produk['harga'] ?>&&gambar=<?= $produk['gambar'] ?>" method="POST">
+                <form action="simpan-keranjang.php?id=<?= $produk['id_barang'] ?>&&nama=<?= $produk['nama_barang'] ?>&&harga=<?= $produk['harga'] ?>&&gambar=<?= $produk['gambar'] ?>" method="POST">
                     <div class="d-flex align-items-center">
                         <p class="me-3 my-auto text-black-50 fw-medium">Kuantitas</p>
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -82,11 +82,11 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 1;
             <div class="d-flex gap-3 justify-content-center">
                 <?php
                 // randomize product
-                $queryProdukRandom = mysqli_query($conn, "SELECT * FROM product ORDER BY RAND() LIMIT 5");
+                $queryProdukRandom = mysqli_query($conn, "SELECT * FROM barang ORDER BY RAND() LIMIT 5");
                 while ($data = mysqli_fetch_assoc($queryProdukRandom)) {
                 ?>
                     <div class="card" style="width: 15rem;">
-                        <a href="detail.php?id=<?= $data['id_product'] ?>">
+                        <a href="detail.php?id=<?= $data['id_barang'] ?>">
                             <img src="../upload/image/<?php echo $data['gambar'] ?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body d-flex flex-column justify-content-end">
