@@ -19,14 +19,14 @@ if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
     if ($ukuran_file <= 100000000) {
         if (move_uploaded_file($tmp_file, "$path")) {
             echo "Berhasill Upload gambar";
-            $result = mysqli_query($conn, "UPDATE user SET
-            username = '$username',password = '$password',role = 'penjual',email='$email',alamat='$alamat', gambar='$gambar' WHERE id_user = '$id'");
+            $result = mysqli_query($conn, "UPDATE pengguna SET
+            username = '$username',password = '$password',role = 'penjual',email='$email',alamat='$alamat', gambar='$gambar' WHERE id_pengguna = '$id'");
             // Redirect to homepage to display updated user in list
             if ($result) {
                 echo "
                 <script>
                     alert('data berhasil diubah');
-                    window.location.href = '../view/profil.php'
+                    window.location.href = '../profil.php'
                 </script>
                 ";
             }

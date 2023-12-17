@@ -17,10 +17,10 @@
         if ( $ukuran_file <= 100000000 ) {
             if ( move_uploaded_file($tmp_file, "$path") ) {
                 echo "Berhasill Upload gambar";
-                $input = mysqli_query($conn, "INSERT INTO `product` (`nama_barang`, `harga`, `deskripsi`, `stok`, `gambar`) VALUES('$nama', '$harga', '$deskripsi', '$stok', '$gambar')") or die(mysqli_error($koneksi));
+                $input = mysqli_query($conn, "INSERT INTO `barang` (`nama_barang`, `harga`, `deskripsi`, `stok`, `gambar`) VALUES('$nama', '$harga', '$deskripsi', '$stok', '$gambar')") or die(mysqli_error($koneksi));
                 if($input){
                     echo "Data Berhasil Disimpan";
-                    header("location: ../view/produk.php");
+                    header("location: ../produk.php");
                 }else{
                     echo "Gagal Disimpan";
                 }

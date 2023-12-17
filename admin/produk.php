@@ -74,7 +74,7 @@ require('../partials/session-admin.php');
                                         <h3 class="modal-title">Tambah Data Baru</h3>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="../controller/simpan-produk.php" method="post" role="form"  enctype="multipart/form-data">
+                                        <form action="./controller/simpan-produk.php" method="post" role="form"  enctype="multipart/form-data">
                                             <div class="row mb-3">
                                                 <label class="col-sm-3 control-label text-right">Nama barang</label>
                                                 <div class="col-sm-8"><input type="text" class="form-control" name="nama_barang" placeholder="Produk..." value="" required></div>
@@ -121,7 +121,7 @@ require('../partials/session-admin.php');
                                             <h3 class="modal-title">Edit Data Produk</h3>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="../controller/update-produk.php?id=<?= $data['id_barang'] ?>" method="post" role="form">
+                                            <form action="./controller/update-produk.php?id=<?= $data['id_barang'] ?>" method="post" role="form">
                                                 <?php
                                                 $id = $data['id_barang'];
                                                 $query1 = mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id'");
@@ -186,7 +186,7 @@ require('../partials/session-admin.php');
                                         </div>
                                         <div class="modal-footer">
                                             <button id="nodelete" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancle</button>
-                                            <a href="../controller/hapus-produk.php?id=<?php echo $data['id_barang']; ?>" class="btn btn-primary">Delete</a>
+                                            <a href="./controller/hapus-produk.php?id=<?php echo $data['id_barang']; ?>" class="btn btn-primary">Delete</a>
                                         </div>
                                     </div>
                                 </div>
