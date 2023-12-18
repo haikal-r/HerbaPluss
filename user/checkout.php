@@ -95,12 +95,12 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
                 <div class="px-3">
                     <p class="py-4 px-2 fs-5 border-bottom">Pembayaran</p>
                     <?php
-                    $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_pengguna = '$idUser' AND type = 'true'");
-                    $data = mysqli_fetch_assoc($query);
                     $queryTotal = mysqli_query($conn, "SELECT SUM(total_harga) AS total_harga FROM keranjang WHERE id_pengguna = '$idUser' AND type = 'true'");
                     $data1 = mysqli_fetch_assoc($queryTotal);
+                    $queryKeranjang = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_pengguna = '$idUser' AND type = 'true'");
+                    $data = mysqli_fetch_assoc($queryKeranjang)
                     ?>
-                    <form action="./controller/simpan-pesanan.php?idk=<?= $data['id_keranjang'] ?>&&id=<?= $data['id_barang'] ?>&&jumlah=<?= $data['jumlah'] ?>&&total=<?= $data1['total_harga'] ?>" method="POST">
+                    <form action="./controller/simpan-pesanan.php" method="POST">
                         <div class="container d-flex justify-content-end border-bottom">
                             <table class="table table-borderless" style="width: 350px;">
                                 <tr>

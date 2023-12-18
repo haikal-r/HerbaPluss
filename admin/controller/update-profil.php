@@ -20,7 +20,7 @@ if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
         if (move_uploaded_file($tmp_file, "$path")) {
             echo "Berhasill Upload gambar";
             $result = mysqli_query($conn, "UPDATE pengguna SET
-            username = '$username',password = '$password',role = 'penjual',email='$email',alamat='$alamat', gambar='$gambar' WHERE id_pengguna = '$id'");
+            nama = '$username',password = '$password',role = 'penjual',email='$email',alamat='$alamat', gambar='$gambar' WHERE id_pengguna = '$id'");
             // Redirect to homepage to display updated user in list
             if ($result) {
                 echo "
