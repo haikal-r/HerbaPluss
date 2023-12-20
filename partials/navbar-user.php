@@ -44,7 +44,7 @@ $idUser = $_SESSION['id_user'];
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="../user/profil.php">Akun Saya</a></li>
-                <li><a class="dropdown-item" href="../user/transaksi.php">Pesanan Saya</a></li>
+                <li><a class="dropdown-item" href="../user/transaksi.php">Transaksi</a></li>
                 <li><a class="dropdown-item" href="../config/auth-logout.php">Logout</a></li>
             </ul>
         </div>

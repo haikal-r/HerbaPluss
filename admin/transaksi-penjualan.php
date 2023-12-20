@@ -50,8 +50,8 @@ require('../partials/session-admin.php');
                             <td><?php echo $data['tanggal'] ?></td>
                             <td><?php echo $data['jumlah'] ?></td>
                             <td><?php echo formatRupiah($data['total_harga']) ?></td>
-                            <td><?php echo $data['id_user'] ?></td>
-                            <td><?php echo $data['id_product'] ?></td>
+                            <td><?php echo $data['id_pengguna'] ?></td>
+                            <td><?php echo $data['id_barang'] ?></td>
                         </tr>
                     </tbody>
                     <?php

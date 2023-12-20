@@ -36,14 +36,14 @@ $pdf->SetFont('Arial', '', 10);
 $pdf->Cell(0, 1, $username, 0, 1);  // Jarak 1 di bawah
 
 $pdf->SetFont('Arial', 'B', 10);  // Font normal (medium) dengan ukuran 10 untuk baris kedua
-$pdf->Cell(1, 0.5, $tanggal, 0, 0);  // Jarak 1 di bawah, tetapi 0 di sebelah kiri (tanpa pindah baris)
+$pdf->Cell(1, 0.5, 'Tanggal', 0, 0);  // Jarak 1 di bawah, tetapi 0 di sebelah kiri (tanpa pindah baris)
 
 // Menambahkan jarak antara "Nama Pembeli" dan "Pembeli"
 $pdf->Cell(1.5); // Jarak horizontal sebanyak 0.5 cm
 
 // Menambahkan teks "Nama Pembeli"
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(0, 0.5, 'Nama tanggal', 0, 1);  // Jarak 1 di bawah
+$pdf->Cell(0, 0.5, $tanggal, 0, 1);  // Jarak 1 di bawah
 
 $pdf->SetDrawColor(192, 192, 192);
 $pdf->Cell(0, 0.7, '', 'B', 1);
@@ -117,6 +117,7 @@ $pdf->Cell(2, 2, $alamat, 0, 0);
 
 
 $pdf->Output("invoice.pdf", "F");
+
 
 header('Content-Type: application/pdf');
 header('Content-Disposition: attachment; filename="invoice.pdf"');
