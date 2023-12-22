@@ -67,7 +67,6 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
                         require '../config/index.php';
                         require '../config/format-rupiah.php';
                         $idUser = $_SESSION['id_user'];
-                        $id = $_GET['id'];
                         $query = mysqli_query($conn, "SELECT * FROM keranjang WHERE id_pengguna = '$idUser' AND type = 'true'");
                         while ($data = mysqli_fetch_assoc($query)) {
                         ?>
@@ -122,7 +121,7 @@ $hasil = isset($_POST['hasil']) ? (int)$_POST['hasil'] : 0;
                             </table>
                         </div>
                         <div class="container d-flex justify-content-end border-bottom">
-                            <button type="submit" class="btn btn-danger rounded-0 px-5 my-3">Buat Pesanan</button>
+                            <button type="submit" name="buatpesanan" class="btn btn-danger rounded-0 px-5 my-3">Buat Pesanan</button>
                         </div>
                     </form>
                 </div>

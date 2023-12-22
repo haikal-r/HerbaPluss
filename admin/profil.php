@@ -83,7 +83,7 @@ $user = $_SESSION['username'];
                         <div class="d-flex flex-column py-3">
                             <h5 class="m-0">Ubah data</h5>
                             <hr />
-                            <form action="../controller/update-profil.php?id=<?= $data['id_pengguna'] ?>" method="post" role="form" enctype="multipart/form-data">
+                            <form action="./controller/update-profil.php?id=<?= $data['id_pengguna'] ?>" method="post" role="form" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <div class="row mb-3 d-flex align-items-center">
                                         <label class="col-sm-3 control-label text-right">Email</label>

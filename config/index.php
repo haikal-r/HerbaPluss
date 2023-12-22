@@ -1,8 +1,12 @@
 <?php
 
 // koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "minipbl");
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "minipbl";
 
-// Fungsi untuk mengubah integer ke format Rupiah
+$conn = mysqli_connect($host, $user, $password, $db);
+
 
 ?>

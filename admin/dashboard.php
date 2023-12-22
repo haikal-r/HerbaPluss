@@ -22,11 +22,11 @@ require '../config/index.php'
             <div class="col-md-2 bg-navigation-primary pr-3 pt-4">
                 <?php include "../partials/sidebar-dashboard-admin.php" ?>
             </div>
-            <div class="col-md-10 p-4">
+            <div class="col-md-10 p-4 posistion-relative">
                 <h3><i class="fas fa-tv me-3"></i>Dashboard</h3>
                 <hr>
                 <!-- main content -->
-                <div class="d-flex justify-content-center gap-4">
+                <div class="d-flex justify-content-center gap-4 position-absolute">
                     <a href="profil.php" class="text-decoration-none">
                         <div class="card text-bg-primary py-2" style="min-width: 15rem;">
                             <div class="card-body d-flex justify-content-start align-items-center fs-4">

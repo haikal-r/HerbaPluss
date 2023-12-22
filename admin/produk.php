@@ -25,7 +25,7 @@ require('../partials/session-admin.php');
                 <!-- main content -->
                 <h3><i class="fa-solid fa-box-open me-2"></i>Data Produk</h3>
                 <hr>
-                <button class="btn btn-primary mb-2 " data-bs-toggle="modal" data-bs-target="#tambahProduk">
+                <button class="btn btn-primary mb-2 " name="tambah" data-bs-toggle="modal" data-bs-target="#tambahProduk">
                     <i class="fas fa-plus-circle me-2"></i>TAMBAH DATA PRODUK</button>
                 <div class="table-responsive">
                 <table class="table table-bordered align-top">

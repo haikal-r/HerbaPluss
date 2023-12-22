@@ -116,16 +116,6 @@ $pdf->Cell(2, 2, $alamat, 0, 0);
 
 
 
-$pdf->Output("invoice.pdf", "F");
-
-
-header('Content-Type: application/pdf');
-header('Content-Disposition: attachment; filename="invoice.pdf"');
-header('Pragma: no-cache');
-header('Expires: 0');
-
-// Baca dan kirimkan konten PDF ke browser
-readfile('invoice.pdf');
-ob_end_flush();
+$pdf->Output("invoice.pdf", "I");
 
 ?>

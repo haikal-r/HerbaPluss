@@ -12,7 +12,7 @@ $idUser = $_SESSION['id_user'];
         <div class="collapse navbar-collapse d-flex justify-content-center d-none d-sm-block" id="navbarSupportedContent">
             <form class="d-flex w-50" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" type="button">Search</button>
             </form>
         </div>
             <?php
