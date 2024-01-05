@@ -158,7 +158,7 @@ require('../partials/session-admin.php');
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button id="noedit" type="button" class="btn btn-danger pull-left" data-bs-dismiss="modal">Cancel</button>
-                                                        <input type="submit" name="submit" class="btn btn-primary" value="Update">
+                                                        <button type="submit" name="submit" class="btn btn-primary">Update</button>
                                                     </div>
                                                 <?php
                                                 }
